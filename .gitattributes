@@ -1,2 +1,2 @@
-*.html linguist-detectable=true
-*.py linguist-detectable=false
+*.html linguist-detectable=false
+*.py linguist-detectable=true
