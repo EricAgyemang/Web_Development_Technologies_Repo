@@ -1,5 +1,5 @@
 
-# Web Development Technologie
+# Web Development Technologie (IT 353, ISU)
 
 # Course Description:
 
