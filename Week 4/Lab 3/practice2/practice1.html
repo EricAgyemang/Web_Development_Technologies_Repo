@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Zombien</title>
+<link rel="stylesheet" href="stylesheet.css">
+<script> /*JavaScript codes need to be within the script tags, you can use an external .js file*/
+
+function docReady()
+        { 
+          window.addEventListener('keydown', moveZombie); 				
+	/*eventListner can tell a key is pressed, and then call the function 	moveZombie*/
+        } 
+
+function moveZombie(evt) { /* create a function call it moveZombie*/
+	switch (evt.keyCode) { /*keyCode is used to identify which key is 	pressed*/
+	case 37: /* the keyCode for the Left Arrow key is 37*/
+	leftArrowPressed(); /* call the function leftArrowPressed()*/
+	break;
+
+        /* stop here*/
+        case 39: /* the keyCode for the Left Arrow key is 37*/
+	rightArrowPressed(); /* call the function leftArrowPressed()*/
+	break;
+        /* stop here*/
+
+        case 38: /* the keyCode for the Left Arrow key is 37*/
+	upArrowPressed(); /* call the function leftArrowPressed()*/
+	break;
+        /* stop here*/
+
+        case 40: /* the keyCode for the Left Arrow key is 37*/
+	downArrowPressed(); /* call the function leftArrowPressed()*/
+	break;
+        /* stop here*/
+	}
+}
+
+function leftArrowPressed() { 
+/*define a function and call it leftArrowPressed()*/
+/*find the zombie div by ID */
+
+var zombie = document.getElementById('zombie'); 	
+ zombie.style.left = parseInt(zombie.style.left) - 10 + 'px';
+
+/*when left Arrow Pressed move the zombie 10 px to the left*/
+  }
+
+function rightArrowPressed() { 
+ zombie.style.left = parseInt(zombie.style.left) + 10 + 'px';
+  }
+
+function upArrowPressed() { 
+ zombie.style.top = parseInt(zombie.style.top) - 10 + 'px';
+  }
+
+function downArrowPressed() { 
+ zombie.style.top = parseInt(zombie.style.top) + 10 + 'px';
+  }
+
+
+</script>
+</head>
+
+<body onload="docReady()"> <!-- a web page has completely loaded all content (e.g., images, CSS files...). for example. a video needs to be loaded-->
+
+<h1 id= "message">This is a scary zombie</h1>
+
+<div id ="zombie" style="position:absolute; left:50px; top:50px";></div>
+</body>
+</html>

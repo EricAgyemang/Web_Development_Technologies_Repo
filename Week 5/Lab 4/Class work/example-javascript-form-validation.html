@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>JavaScript Form Validation using a sample registration form</title>
+		<meta name="keywords" content="example, JavaScript Form Validation, Sample registration form" />
+		<meta name="description" content="This document is an example of JavaScript Form Validation using a sample registration form. " />
+		<link rel='stylesheet' href='js-form-validation.css' type='text/css' />
+		<script src="sample-registration-form-validation.js"></script>
+	</head>
+	
+	<body onload="document.registration.userid.focus();">
+		<h1>Registration Form</h1>
+		<br>
+		<p id="p">Use tab keys to move from one input field to the next.</p>
+		<br>
+		<form name='registration' onsubmit="return formValidate();">
+			
+			<label for="userid">User id:</label>
+			<input type="text" name="userid" size="20" /> <br>
+			<label for="userpassword">Password:</label>
+			<input type="password" name="userpassword" size="20" /> <br>
+			<label for="username">Name:</label>
+			<input type="text" name="username" size="20" /> <br>
+			<label for="address">Address:</label>
+			<input type="text" name="address" size="40" /> <br>
+			
+			<label for="country">Country:</label>
+			<select name="country">
+				<option selected="" value="Default">(Please select a country)</option>
+				<option value="AF">Australia</option>
+				<option value="AL">Canada</option>
+				<option value="DZ">India</option>
+				<option value="AS">Russia</option>
+				<option value="AD">USA</option> 
+			</select> <br>
+			
+			<label for="zip">ZIP Code:</label>
+			<input type="text" name="zip" /> <br>
+			<label for="email" >Email:</label>
+			<input type="email" name="email" size="40" /> <br>
+			<label>Language:</label>
+			<input type="checkbox" name="en" value="en" checked /><span>English</span>
+			<input type="checkbox" name="nonen" value="noen" /><span>Non English</span> <br>
+			<label for="desc">About:</label>
+			<textarea name="desc" id="desc"></textarea><br>
+			<input type="submit" name="submit" value="Submit" />
+			
+			
+		</form>
+		
+		<br>
+			<p id="errormessage"> </p>
+	</body>
+</html>

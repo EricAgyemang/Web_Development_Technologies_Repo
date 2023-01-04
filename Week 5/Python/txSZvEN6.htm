@@ -1,0 +1,1885 @@
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <link href="https://cdn.realpython.com" rel="preconnect">
+    <link href="https://files.realpython.com" rel="preconnect">
+
+    <title>Java vs Python: Basic Python for Java Developers – Real Python</title>
+    <meta name="author" content="Real Python">
+    <meta name="description" content="Are you an experienced Java developer who wants to know more about Python? In this tutorial, you&#x27;ll compare Java vs Python and get to know the similarities and differences between the languages. You&#x27;ll also learn how to figure out when Python is a good choice for your specific use cases.">
+    <meta name="keywords" content="">
+
+    
+  
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
+
+    
+      <link rel="stylesheet" href="https://cdn.realpython.com/static/realpython.min.1a28062d0366.css">
+      <link rel="stylesheet" href="https://cdn.realpython.com/static/gfonts/font.5ac42994de49.css">
+      <link rel="preload" href="https://cdn.realpython.com/static/glightbox.min.9b438b29cef1.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.realpython.com/static/glightbox.min.9b438b29cef1.css"></noscript>
+    
+
+    
+  
+
+
+    
+    
+      <link rel="canonical" href="https://realpython.com/java-vs-python/">
+
+      
+      
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="https://files.realpython.com/media/Java-vs-Python-What-a-Java-Developer-Should-Know-About-Python_Watermarked.cc6cffe5a61a.jpg">
+        <meta property="og:image" content="https://files.realpython.com/media/Java-vs-Python-What-a-Java-Developer-Should-Know-About-Python_Watermarked.cc6cffe5a61a.jpg">
+      
+      <meta name="twitter:creator" content="@realpython">
+      <meta name="twitter:site" content="@realpython">
+      <meta property="og:title" content="Java vs Python: Basic Python for Java Developers – Real Python">
+      <meta property="og:type" content="article">
+      <meta property="og:url" content="https://realpython.com/java-vs-python/">
+      <meta property="og:description" content="Are you an experienced Java developer who wants to know more about Python? In this tutorial, you&#x27;ll compare Java vs Python and get to know the similarities and differences between the languages. You&#x27;ll also learn how to figure out when Python is a good choice for your specific use cases.">
+    
+
+    <link href="https://cdn.realpython.com/static/favicon.68cbf4197b0c.png" rel="icon">
+    <link href="https://realpython.com/atom.xml" rel="alternate" title="Real Python" type="application/atom+xml">
+    <link rel="manifest" href="/manifest.json">
+
+    
+
+    
+    
+
+    
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-35184939-1', 'auto', {'allowLinker': true});
+
+  
+
+  
+
+  
+  
+  ga('set', {
+    dimension1: false,
+    dimension2: false
+  });
+  
+
+  ga('send', 'pageview');
+  
+</script>
+
+  </head>
+  <body >
+    
+      
+
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark flex-column ">
+  <div class="container flex-row">
+
+    <a class="navbar-brand" href="/">
+      <img src="https://cdn.realpython.com/static/real-python-logo.893c30edea53.svg" width="165" height="40" class="d-inline-block align-top" alt="Real Python">
+    </a>
+
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse navbar-nav-scroll" id="navbarSupportedContent" role="navigation" aria-label="Main Navigation">
+
+      <ul class="navbar-nav mr-2">
+
+        <li class="nav-item">
+          <a class="nav-link" href="/start-here/">Start&nbsp;Here</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLibrary" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="fa fa-graduation-cap" aria-hidden="true"></span> Learn Python
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownLibrary">
+            <a class="dropdown-item" href="/search?kind=article&kind=course&order=newest" style="color: #ff7e73; line-height: 110%;"><i class="fa fa-fw mr-1 fa-graduation-cap" aria-hidden="true"></i> Python Tutorials →<br><small class="text-secondary">In-depth articles and video courses</small></a>
+            
+            <a class="dropdown-item" href="/learning-paths/" style="color: #ffc873; line-height: 110%;"><i class="fa fa-fw mr-1 fa-map-o" aria-hidden="true"></i> Learning Paths →<br><small class="text-secondary">Guided study plans for accelerated learning</small></a>
+            <a class="dropdown-item" href="/quizzes/" style="color: #abe0e5; line-height: 110%;"><i class="fa fa-fw mr-1 fa-trophy" aria-hidden="true"></i> Quizzes →<br><small class="text-secondary">Check your learning progress</small></a>
+            <a class="dropdown-item" href="/tutorials/all/" style="color: #ccc; line-height: 110%;"><i class="fa fa-fw mr-1 fa-tags" aria-hidden="true"></i> Browse Topics →<br><small class="text-secondary">Focus on a specific area or skill level</small></a>
+            <a class="dropdown-item" href="/community/" style="color: #e5c6ab; line-height: 110%;"><i class="fa fa-fw mr-1 fa-slack" aria-hidden="true"></i> Community Chat →<br><small class="text-secondary">Learn with other Pythonistas</small></a>
+            <a class="dropdown-item" href="/office-hours/" style="color: #e5c6ab; line-height: 110%;"><i class="fa fa-fw mr-1 fa-users" aria-hidden="true"></i> Office Hours →<br><small class="text-secondary">Live Q&A calls with Python experts</small></a>
+            <a class="dropdown-item" href="/podcasts/rpp/" style="color: #b8abe5; line-height: 110%;"><i class="fa fa-fw mr-1 fa-podcast" aria-hidden="true"></i> Podcast →<br><small class="text-secondary">Hear what’s new in the world of Python</small></a>
+            <a class="dropdown-item pb-3" href="/products/books/" style="color: #abe5b1; line-height: 110%;"><i class="fa fa-fw mr-1 fa-book" aria-hidden="true"></i> Books →<br><small class="text-secondary">Round out your knowledge and learn offline</small></a>
+            
+              <a class="dropdown-item border-top text-warning" href="/account/join/"><i class="fa fa-fw fa-star text-warning" aria-hidden="true"></i> Unlock All Content →</a>
+            
+          </div>
+        </li>
+
+        
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMore" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            More
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMore">
+            <a class="dropdown-item" href="/products/">Python Learning Resources</a>
+            <a class="dropdown-item" href="/newsletter/">Python Newsletter</a>
+            <a class="dropdown-item" href="https://www.pythonjobshq.com" target="_blank">Python Job Board</a>
+            <a class="dropdown-item" href="/team/">Meet the Team</a>
+            <a class="dropdown-item" href="/write-for-us/">Become a Tutorial Author</a>
+            <a class="dropdown-item" href="/become-an-instructor/">Become a Video Instructor</a>
+          </div>
+        </li>
+
+      </ul> 
+
+      
+      <div class="d-block d-lg-none"> 
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/search" title="Search"><span class="d-block d-lg-none"><i class="fa fa-search" aria-hidden="true"></i> Search</span><span class="d-none d-lg-block"><i class="fa fa-search" aria-hidden="true"></i></span></a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="d-none d-lg-flex align-items-center mr-2 flex-fill">
+        <form class="form-inline w-100" action="/search" method="GET">
+          <a class="js-search-form-submit position-absolute" href="/search" title="Search"><i class="fa fa-search fa-fw text-muted pl-2" aria-hidden="true"></i></a>
+          <input class="search-field form-control form-control-md mr-sm-1 mr-lg-2 w-100" style="padding-left: 2rem;" maxlength=50 type="search" placeholder="Search" aria-label="Search" name="q" autocomplete="off">
+          <input type="hidden" name="_from" value="nav">
+        </form>
+      </div>
+      
+
+      <ul class="navbar-nav ml-auto">
+        
+          <li class="nav-item form-inline">
+            <a class="ml-2 ml-lg-0 btn btn-sm btn-primary px-3" href="/account/join/">Join</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn text-light" href="/account/login/?next=%2Fjava-vs-python%2F">Sign&#8209;In</a>
+          </li>
+        
+      </ul>
+
+    
+    </div>
+
+  </div>
+
+  
+
+</nav>
+
+    
+
+    <div class="container main-content">
+      
+
+      
+  <div class="row justify-content-center">
+
+    <div class="col-md-11 col-lg-8 article with-headerlinks">
+      
+
+  
+    <figure class="embed-responsive embed-responsive-16by9">
+      
+        <img class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain;" alt="Java vs Python: What Should a Java Developer Know About Python?" src="https://files.realpython.com/media/Java-vs-Python-What-a-Java-Developer-Should-Know-About-Python_Watermarked.cc6cffe5a61a.jpg" width="1920" height="1080" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Java-vs-Python-What-a-Java-Developer-Should-Know-About-Python_Watermarked.cc6cffe5a61a.jpg&amp;w=480&amp;sig=d97ae7db3e51d7890a3e87df0c24b1eed4585860 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Java-vs-Python-What-a-Java-Developer-Should-Know-About-Python_Watermarked.cc6cffe5a61a.jpg&amp;w=960&amp;sig=8daf912f3b21698e08455f311bf91835b81f116d 960w, https://files.realpython.com/media/Java-vs-Python-What-a-Java-Developer-Should-Know-About-Python_Watermarked.cc6cffe5a61a.jpg 1920w" sizes="75vw">
+      
+    </figure>
+  
+
+  <h1>Java vs Python: Basic Python for Java Developers</h1>
+  <div class="mb-0">
+    
+      <span class="text-muted">by <a class="text-muted" href="#author">Jan-Hein Bührman</a>
+    
+    
+    
+      <span class="ml-2 mr-1 fa fa-comments"></span><a class="text-muted" href="#reader-comments"><span class="disqus-comment-count" data-disqus-identifier="https://realpython.com/java-vs-python/"></span></a>
+    
+    
+    <span class="ml-2 fa fa-tags" aria-hidden="true"></span>
+    
+      <a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+    
+      <a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+    
+    <div class="d-sm-flex flex-row justify-content-between my-3 text-center">
+      <div class="jsCompletionStatusWidget btn-group mb-0">
+  <button title="Click to mark as completed" class="jsBtnCompletion btn btn-secondary border-right " style="border-top-right-radius: 0; border-bottom-right-radius: 0;" disabled>Mark as Completed</button>
+  <button title="Add bookmark" class="jsBtnBookmark btn btn-secondary border-left" disabled><i class="fa fa-fw fa-bookmark-o"></i></button>
+</div>
+
+      
+      
+        <div class="align-self-center my-2">
+          
+<span>
+  <a target="_blank" rel="nofollow" href="https://twitter.com/intent/tweet/?text=Check out this %23Python tutorial: Java%20vs%20Python%3A%20Basic%20Python%20for%20Java%20Developers by @realpython&url=https%3A//realpython.com/java-vs-python/" class="mr-1 badge badge-twitter text-light mb-1"><i class="mr-1 fa fa-twitter text-light"></i>Tweet</a>
+  <a target="_blank" rel="nofollow" href="https://facebook.com/sharer/sharer.php?u=https%3A//realpython.com/java-vs-python/" class="mr-1 badge badge-facebook text-light mb-1"><i class="mr-1 fa fa-facebook text-light"></i>Share</a>
+  
+  <a target="_blank" rel="nofollow" href="mailto:?subject=Python article for you&body=Check out this Python tutorial:%0A%0AJava%20vs%20Python%3A%20Basic%20Python%20for%20Java%20Developers%0A%0Ahttps%3A//realpython.com/java-vs-python/" class="badge badge-red text-light mb-1"><i class="mr-1 fa fa-envelope text-light"></i>Email</a>
+</span>
+
+        </div>
+      
+    </div>
+  </div>
+
+  
+
+  <div class="article-body">
+    
+      <div class="bg-light sidebar-module sidebar-module-inset" id="toc">
+        <p class="h3 mb-2 text-muted">Table of Contents</p>
+        <div class="toc">
+<ul>
+<li><a href="#where-does-python-come-from">Where Does Python Come From?</a></li>
+<li><a href="#what-is-the-philosophy-of-python">What Is the Philosophy of Python?</a><ul>
+<li><a href="#python-code-is-readable">Python Code Is Readable</a></li>
+<li><a href="#python-comes-with-batteries-included">Python Comes With Batteries Included</a></li>
+<li><a href="#python-promotes-code-reuse">Python Promotes Code Reuse</a></li>
+<li><a href="#python-is-easily-extensible">Python Is Easily Extensible</a></li>
+</ul>
+</li>
+<li><a href="#how-can-you-start-discovering-python">How Can You Start Discovering Python?</a><ul>
+<li><a href="#installing-python">Installing Python</a></li>
+<li><a href="#creating-a-sandbox-and-using-it">Creating a Sandbox and Using It</a></li>
+<li><a href="#choosing-an-editor-or-integrated-development-environment">Choosing an Editor or Integrated Development Environment</a></li>
+</ul>
+</li>
+<li><a href="#how-is-python-different-from-java">How Is Python Different From Java?</a><ul>
+<li><a href="#indentation-for-code-block-grouping">Indentation for Code Block Grouping</a></li>
+<li><a href="#a-read-eval-print-loop-from-the-beginning">A Read-Eval-Print Loop From the Beginning</a></li>
+<li><a href="#dynamically-typed-and-strongly-typed">Dynamically Typed and Strongly Typed</a></li>
+<li><a href="#cpython-vs-the-jit-compiler">CPython vs the JIT Compiler</a></li>
+<li><a href="#built-in-function-and-operator-overloading">Built-in Function and Operator Overloading</a></li>
+<li><a href="#nice-syntax-for-functional-processing-of-collections">Nice Syntax for Functional Processing of Collections</a></li>
+<li><a href="#everything-is-an-object">Everything Is an Object</a></li>
+</ul>
+</li>
+<li><a href="#what-aspects-of-java-and-python-are-similar">What Aspects of Java and Python Are Similar?</a><ul>
+<li><a href="#class-based-object-orientation">Class-Based Object Orientation</a></li>
+<li><a href="#operators">Operators</a></li>
+<li><a href="#string-formatting">String Formatting</a></li>
+<li><a href="#control-flow-constructs">Control Flow Constructs</a></li>
+</ul>
+</li>
+<li><a href="#java-vs-python-what-are-the-high-level-native-data-types">Java vs Python: What Are the High-Level Native Data Types?</a><ul>
+<li><a href="#numeric-types-and-their-operators">Numeric Types and Their Operators</a></li>
+<li><a href="#basic-sequence-types">Basic Sequence Types</a></li>
+<li><a href="#dictionaries">Dictionaries</a></li>
+<li><a href="#sets">Sets</a></li>
+<li><a href="#strings">Strings</a></li>
+<li><a href="#bytes">Bytes</a></li>
+<li><a href="#booleans">Booleans</a></li>
+<li><a href="#none">None</a></li>
+<li><a href="#more-container-data-types">More Container Data Types</a></li>
+</ul>
+</li>
+<li><a href="#what-resources-are-there-for-specific-usages">What Resources Are There for Specific Usages?</a></li>
+<li><a href="#when-would-python-be-more-useful-than-java-and-why">When Would Python Be More Useful Than Java, and Why?</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#additional-resources">Additional Resources</a></li>
+</ul>
+</div>
+
+      </div>
+    
+
+    
+    <div class="sidebar-module sidebar-module-inset p-0" style="overflow:hidden;">
+      
+<div style="display:block;position:relative;">
+  <div style="display:block;width:100%;padding-top:12.5%;"></div>
+  <div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div>
+</div>
+<a class="small text-muted" href="/account/join/" rel="nofollow"><i class="fa fa-info-circle mr-1" aria-hidden="true"></i>Remove ads</a>
+
+
+    </div>
+    
+
+    
+
+    <p>Python is a general-purpose programming language. You can understand its growth in the last couple of years by considering its approachability for learning and its high suitability for data analysis, machine learning, and web development. But what kind of programming language is it? What are some differences when you compare Java vs Python? What can you do with it? And is it really as &ldquo;easy to learn&rdquo; as some people claim?</p>
+<p>You&rsquo;ll explore Python from a Java perspective in this tutorial. After you&rsquo;ve read it, you&rsquo;ll be able to decide whether Python is a viable option to solve your use cases and to appreciate when you can use Python in combination with Java for certain types of problems.</p>
+<p><strong>In this tutorial, you&rsquo;ll learn about:</strong></p>
+<ul>
+<li>The general Python programming <strong>language syntax</strong></li>
+<li>The most relevant standard <strong>data types</strong></li>
+<li>The <strong>differences</strong> and <strong>similarities</strong> in Java vs Python</li>
+<li>Resources for high-quality Python <strong>documentation</strong> and <strong>tutorials</strong></li>
+<li>Some of the Python community&rsquo;s favorite <strong>frameworks</strong> and <strong>libraries</strong></li>
+<li>Approaches for <strong>getting started</strong> with Python programming from scratch</li>
+</ul>
+<p>This tutorial is for software developers who are familiar with Java&rsquo;s inner workings, concepts, terminology, classes, types, collections framework, and so on.</p>
+<p>You don&rsquo;t need to have any Python experience at all.</p>
+<div class="alert alert-warning" role="alert"><p><strong>Free Bonus:</strong> <a href="" class="alert-link" data-toggle="modal" data-target="#modal-python-cheat-sheet-shortened" data-focus="false">Click here to get a Python Cheat Sheet</a> and learn the basics of Python 3, like working with data types, dictionaries, lists, and Python functions.</p></div>
+
+<section class="section2" id="where-does-python-come-from"><h2>Where Does Python Come From?<a class="headerlink" href="#where-does-python-come-from" title="Permanent link"></a></h2>
+<p>Python is a programming language that was developed by <a href="https://en.wikipedia.org/wiki/Guido_van_Rossum" title="Guido van Rossum - Wikipedia">Guido van Rossum</a>. He was looking for a hobby programming project that would keep him occupied during the Christmas holiday in 1989, so that&rsquo;s when he started developing the Python interpreter.</p>
+<p>Python has its origins in a number of languages: <a href="https://homepages.cwi.nl/~steven/abc/" title="The ABC Programming Language: a short introduction">ABC</a>, <a href="https://en.wikipedia.org/wiki/C_(programming_language)" title="C (programming language) - Wikipedia">C</a>, and <a href="https://en.wikipedia.org/wiki/Modula-3" title="Modula-3 - Wikipedia">Modula-3</a>. It&rsquo;s basically an object-oriented, imperative programming language.</p>
+<p>Depending on your preference and desired functionality, it can be applied in a full object-oriented style or in a procedural programming style with functions. The object-oriented capabilities are addressed <a href="#class-based-object-orientation">later</a> in this tutorial.</p>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> Just for clarity, from a Java perspective, Python functions are like <strong>static methods</strong>, and you don&rsquo;t necessarily need to define them within a class. <a href="#indentation-for-code-block-grouping">Later on</a>, you&rsquo;ll see an example of a Python function definition.</p>
+</div>
+<p>Additionally, a more functional programming style is also perfectly possible. To learn more, you&rsquo;ll want to explore <a href="https://realpython.com/python-functional-programming/" title="Functional Programming in Python: When and How to Use It – Real Python">Python&rsquo;s functional programming capabilities</a>.</p>
+<p>In early 2021, TIOBE announced Python as the <a href="https://www.tiobe.com/tiobe-index/python/" title="Tiobe: Python">programming language of the year</a> for the fourth time. As of the 2021 <a href="https://octoverse.github.com/#top-languages-over-the-years" title="Octoverse: Top languages over the years">Octoverse report</a>, Python ranks as the second most popular language on GitHub by repository contributors.</p>
+<div><div class="rounded border border-light" style="display:block;position:relative;"><div style="display:block;width:100%;padding-top:12.5%;"></div><div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div></div><a class="small text-muted" href="/account/join/" rel="nofollow"><i aria-hidden="true" class="fa fa-info-circle mr-1"></i>Remove ads</a></div></section><section class="section2" id="what-is-the-philosophy-of-python"><h2>What Is the Philosophy of Python?<a class="headerlink" href="#what-is-the-philosophy-of-python" title="Permanent link"></a></h2>
+<p>Soon, you&rsquo;ll get hands-on with Python in the <a href="#how-can-you-start-discovering-python">sections following this one</a>. First, however, you&rsquo;ll explore why it&rsquo;s worth getting to know Python better by going through some features that you can trace back to Python&rsquo;s philosophy.</p>
+<p>Some ideas behind Java and Python are similar, but every programming language has its own unique characteristics. The philosophy of Python is captured as a collection of nineteen guiding principles, the <a href="https://en.wikipedia.org/wiki/Zen_of_Python" title="Zen of Python - Wikipedia">Zen of Python</a>. Python hides a few Easter eggs, and one of them is the Zen of Python. Consider what happens when you issue the following command in the Python <a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">read–eval–print loop (REPL)</a>:</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">this</span>
+<span class="go">The Zen of Python, by Tim Peters</span>
+
+<span class="go">Beautiful is better than ugly.</span>
+<span class="go">Explicit is better than implicit.</span>
+<span class="go">Simple is better than complex.</span>
+<span class="go">Complex is better than complicated.</span>
+<span class="go">Flat is better than nested.</span>
+<span class="go">Sparse is better than dense.</span>
+<span class="go">Readability counts.</span>
+<span class="go">Special cases aren&#39;t special enough to break the rules.</span>
+<span class="go">Although practicality beats purity.</span>
+<span class="go">Errors should never pass silently.</span>
+<span class="go">Unless explicitly silenced.</span>
+<span class="go">In the face of ambiguity, refuse the temptation to guess.</span>
+<span class="go">There should be one-- and preferably only one --obvious way to do it.</span>
+<span class="go">Although that way may not be obvious at first unless you&#39;re Dutch.</span>
+<span class="go">Now is better than never.</span>
+<span class="go">Although never is often better than *right* now.</span>
+<span class="go">If the implementation is hard to explain, it&#39;s a bad idea.</span>
+<span class="go">If the implementation is easy to explain, it may be a good idea.</span>
+<span class="go">Namespaces are one honking great idea -- let&#39;s do more of those!</span>
+</code></pre></div>
+<p>While you shouldn&rsquo;t take the statements above too literally, a few of these relate directly to the characteristics that you&rsquo;ll walk through next. </p>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> The Python read–eval–print loop is explained later on in this tutorial.</p>
+</div>
+<p>By considering the guiding principles of the Zen of Python, you&rsquo;ll get a good idea about how you can approach working with the language.</p>
+<section class="section3" id="python-code-is-readable"><h3>Python Code Is Readable<a class="headerlink" href="#python-code-is-readable" title="Permanent link"></a></h3>
+<p>If you come from a Java background and you look at a typical fragment of Python code, you might think that you&rsquo;re looking at pseudo-code. There are a few factors that contribute to this:</p>
+<ul>
+<li><strong>Indentation</strong> is used for statement grouping. This makes code blocks shorter and promotes a uniform coding style. You&rsquo;ll find more on this topic later on.</li>
+<li>A few built-in high-level data structures, combined with a modest set of operator symbols, make Python very <strong>expressive</strong>.</li>
+<li>The choice of using <a href="https://realpython.com/python-exceptions/" title="Python Exceptions: An Introduction – Real Python">exceptions</a> as the primary way to deal with errors keeps the code clean.</li>
+<li>Python programmers prefer a coding style inspired by the concept that it&rsquo;s Easier to Ask for Forgiveness than Permission (EAFP) instead of the Look Before You Leap (LBYL) concept. This style puts emphasis on the normal, <a href="https://en.wikipedia.org/wiki/Happy_path" title="Happy path - Wikipedia">happy path</a> of your program, and you&rsquo;ll figure out how any anomalies are handled afterward. For more information on these two coding styles, check out <a href="https://realpython.com/python-lbyl-vs-eafp/">LBYL vs EAFP: Preventing or Handling Errors in Python</a>.</li>
+</ul>
+<p>You can find a few examples of how this appears in practice during this tutorial, as well as in other linked resources.</p>
+</section><section class="section3" id="python-comes-with-batteries-included"><h3>Python Comes With Batteries Included<a class="headerlink" href="#python-comes-with-batteries-included" title="Permanent link"></a></h3>
+<p>The aim of Python is that you can solve the majority of everyday problems with just the standard distribution of Python. To that purpose, Python includes what&rsquo;s called the <a href="https://docs.python.org/3/library/index.html" title="The Python Standard Library — Python 3 documentation">standard library</a>. Just like the <a href="https://en.wikipedia.org/wiki/Java_(programming_language)#Class_libraries" title="Java (programming language) - Wikipedia: Class libraries">Java Class Library</a>, it&rsquo;s an extensive collection of useful facilities consisting of constants, functions, classes, and frameworks.</p>
+<p>For further acquaintance with the Python standard library, check out the <a href="https://docs.python.org/3/tutorial/stdlib.html" title="10. Brief Tour of the Standard Library — Python 3 documentation">first part</a> and the <a href="https://docs.python.org/3/tutorial/stdlib2.html" title="11. Brief Tour of the Standard Library — Part II — Python 3 documentation">second part</a> of the Brief Tour of the Standard Library in the Python docs&rsquo; <a href="https://docs.python.org/3/tutorial/" title="The Python Tutorial — Python 3 documentation">Python tutorial</a>.</p>
+</section><section class="section3" id="python-promotes-code-reuse"><h3>Python Promotes Code Reuse<a class="headerlink" href="#python-promotes-code-reuse" title="Permanent link"></a></h3>
+<p>Python provides several features that enable you to develop code that you can reuse in different places to apply the <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself" title="Don't repeat yourself - Wikipedia">Don&rsquo;t Repeat Yourself (DRY)</a> principle.</p>
+<p>One feature is that you typically decompose your code into <a href="https://docs.python.org/3/glossary.html#term-module" title="Glossary — Python 3 documentation: module">modules</a> and <a href="https://docs.python.org/3/glossary.html#term-package" title="Glossary — Python 3 documentation: package">packages</a> within Python. Note, however, that Python modules and packages are different from Java modules and packages. If you want to learn more about these concepts from the perspective of a Python developer, you can read about <a href="https://realpython.com/python-modules-packages/" title="Python Modules and Packages – An Introduction – Real Python">Python modules and packages</a>.</p>
+<p>Another technique that you can use within Python is object-oriented programming. You&rsquo;ll explore this <a href="#class-based-object-orientation">later on</a> in this tutorial.</p>
+<p>You can also use <a href="https://realpython.com/primer-on-python-decorators/" title="Primer on Python Decorators – Real Python">decorators</a> to modify Python functions, classes, or methods. This is yet another technique so that you can program functionality only once, after which it can be used from any function, class, or method that you&rsquo;ve decorated.</p>
+</section><section class="section3" id="python-is-easily-extensible"><h3>Python Is Easily Extensible<a class="headerlink" href="#python-is-easily-extensible" title="Permanent link"></a></h3>
+<p>The support of modules and packages is one of the ingredients that makes it easy to extend Python with new functionality. You can also define new or adapted behavior to Python standard operators and functions by <a href="https://en.wikipedia.org/wiki/Operator_overloading" title="Operator overloading - Wikipedia">overloading</a> them. It&rsquo;s even possible to influence how <a href="https://realpython.com/python-metaclasses/" title="Python Metaclasses – Real Python">classes are created</a>.</p>
+<p>The most straightforward way to extend Python is to write your code in pure Python. You can also define modules by <a href="https://realpython.com/python-bindings-overview/" title="Python Bindings: Calling C or C++ From Python – Real Python">using bindings</a> in a stripped-down dialect of Python, called Cython, or in C or C++.</p>
+<div><div class="rounded border border-light" style="display:block;position:relative;"><div style="display:block;width:100%;padding-top:12.5%;"></div><div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div></div><a class="small text-muted" href="/account/join/" rel="nofollow"><i aria-hidden="true" class="fa fa-info-circle mr-1"></i>Remove ads</a></div></section></section><section class="section2" id="how-can-you-start-discovering-python"><h2>How Can You Start Discovering Python?<a class="headerlink" href="#how-can-you-start-discovering-python" title="Permanent link"></a></h2>
+<p>In this tutorial, you&rsquo;ll find examples that might encourage you to explore certain things or to try out Python code fragments for yourself. As a Java developer, you might remember your first steps in getting acquainted with Java and installing your first Java Development Kit. Likewise, if you want to get started with Python, you&rsquo;ll first need to install it and then create a sandbox where you can safely experiment.</p>
+<p>There are already a couple of tutorials that explain how to do this, so the next subsections will point you to these resources.</p>
+<section class="section3" id="installing-python"><h3>Installing Python<a class="headerlink" href="#installing-python" title="Permanent link"></a></h3>
+<p>The first step is to install a recent version of Python. In order to do that, follow this <a href="https://realpython.com/installing-python/" title="Python 3 Installation &amp; Setup Guide – Real Python">Python 3 installation and setup guide</a>.</p>
+<p>Another place you can look for installation instructions is the <a href="https://www.python.org/downloads/" title="Download Python | Python.org">official Python download page</a>.</p>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> Make sure you&rsquo;ve installed a recent version of Python. At the time of writing this tutorial, the most recent version is the latest patch version of the <a href="https://realpython.com/python310-new-features/" title="Python 3.10: Cool New Features for You to Try">3.10.x series</a>. The code fragments shown in this tutorial should all work with this version of Python.</p>
+</div>
+<p>Many Python developers contribute to libraries that support various Python versions, and they often prefer to try out a pre-release of Python without disturbing their regular Python work. In those situations, it&rsquo;s convenient to have access to multiple versions of Python on the same machine. A tool that provides that functionality is <a href="https://realpython.com/intro-to-pyenv/" title="Managing Multiple Python Versions With pyenv – Real Python"><code>pyenv</code></a>, which is comparable to Java&rsquo;s <a href="https://www.jenv.be/" title="jEnv - Manage your Java environment">jEnv</a>.</p>
+</section><section class="section3" id="creating-a-sandbox-and-using-it"><h3>Creating a Sandbox and Using It<a class="headerlink" href="#creating-a-sandbox-and-using-it" title="Permanent link"></a></h3>
+<p>As a second step, you should set up a virtual environment so that you can safely take advantage of the open source Python ecosystem. This section explains how and why you should do that.</p>
+<p>Although Python comes with an extensive <a href="https://docs.python.org/3/library/index.html" title="The Python Standard Library — Python 3 documentation">standard library</a> with all kinds of functionality, there&rsquo;s even more functionality available in the form of <strong>external packages</strong>, of which the vast majority are open source. The <a href="https://pypi.org/" title="PyPI · The Python Package Index">Python Package Index</a>, or <strong>PyPI</strong> for short, is the main central repository that collects and provides these packages. You can install packages with the <a href="https://realpython.com/what-is-pip/" title="What Is Pip? A Guide for New Pythonistas – Real Python"><code>pip</code></a> command. Before you do that, however, first read the next two paragraphs.</p>
+<p>To avoid dependency version conflicts, you generally shouldn&rsquo;t share your global or personal Python installation between projects. In practice, you accompany each project or experimentation sandbox with a <a href="https://docs.python.org/3/library/venv.html" title="venv — Creation of virtual environments — Python 3 documentation">virtual environment</a>.</p>
+<p>This way, your projects stay independent from one another. This approach also prevents version conflicts between packages. If you want to know more about this process, then you can read in detail about how to <a href="https://realpython.com/python-virtual-environments-a-primer/" title="Python Virtual Environments: A Primer – Real Python">create and activate your virtual environments</a>.</p>
+</section><section class="section3" id="choosing-an-editor-or-integrated-development-environment"><h3>Choosing an Editor or Integrated Development Environment<a class="headerlink" href="#choosing-an-editor-or-integrated-development-environment" title="Permanent link"></a></h3>
+<p>As a final step to getting set up, decide on which editor or IDE you&rsquo;d like to use. If you&rsquo;re used to IntelliJ, then <a href="https://realpython.com/pycharm-guide/" title="PyCharm for Productive Python Development (Guide) – Real Python">PyCharm</a> seems to be the logical choice because it belongs to the same line of products. Another popular editor on the rise is <a href="https://realpython.com/python-development-visual-studio-code/" title="Python Development in Visual Studio Code – Real Python">Visual Studio Code</a>, but you can also choose from <a href="https://realpython.com/python-ides-code-editors-guide/" title="Python IDEs and Code Editors (Guide) – Real Python">many other options</a>.</p>
+<p>After you&rsquo;ve installed Python, learned how to install external packages into a virtual environment, and chosen an editor or IDE, you can start experimenting with the language. As you read through the rest of this tutorial, you&rsquo;ll find plenty of opportunities to experiment and practice.</p>
+</section></section><section class="section2" id="how-is-python-different-from-java"><h2>How Is Python Different From Java?<a class="headerlink" href="#how-is-python-different-from-java" title="Permanent link"></a></h2>
+<p>You can quickly get a feel for what kind of programming language Python is by looking at where the most striking differences are. In the following subsections, you&rsquo;ll get to know the most important ways that Python is different from Java.</p>
+<section class="section3" id="indentation-for-code-block-grouping"><h3>Indentation for Code Block Grouping<a class="headerlink" href="#indentation-for-code-block-grouping" title="Permanent link"></a></h3>
+<p>Perhaps the most striking feature of Python is its syntax. In particular, the way you specify its functions, classes, flow-control constructs, and code blocks is quite different from what you might be used to. In Java, you indicate code blocks with the well-known curly braces (<code>{</code> and <code>}</code>). In Python, however, you indicate code blocks by the <strong>indent level</strong>. Here you see an example that demonstrates how the indentation determines code block grouping:</p>
+<div class="highlight python"><pre><span></span><code><span class="linenos"> 1</span><span class="k">def</span> <span class="nf">parity</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+<span class="linenos"> 2</span>    <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;odd&quot;</span>                              <span class="c1"># Function body</span>
+<span class="linenos"> 3</span>    <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos"> 4</span>        <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;even&quot;</span>                         <span class="c1"># Body of if-block</span>
+<span class="linenos"> 5</span>    <span class="k">return</span> <span class="n">result</span>                               <span class="c1"># Not part of if-block</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>                            <span class="c1"># Not part of function</span>
+<span class="linenos"> 8</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number&quot;</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="s2">&quot;is&quot;</span><span class="p">,</span> <span class="n">parity</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>     <span class="c1"># Body of for-loop</span>
+<span class="linenos"> 9</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is not part of the loop&quot;</span><span class="p">)</span>           <span class="c1"># Not part of for-loop</span>
+</code></pre></div>
+<p>The code displays a few new concepts:</p>
+<ul>
+<li><strong>Line 1:</strong> The <code>def</code> statement starts the definition of a new <a href="https://realpython.com/defining-your-own-python-function/" title="Defining Your Own Python Function – Real Python">function</a> named <code>parity()</code>, which accepts an argument called <code>number</code>. Note that if the <code>def</code> statement had appeared within a class definition block, it would have started a <a href="https://realpython.com/instance-class-and-static-methods-demystified/" title="Python's Instance, Class, and Static Methods Demystified – Real Python">method</a> definition instead.</li>
+<li><strong>Line 2:</strong> Within <code>parity()</code>, the function body starts on an <strong>indented level</strong>. The first statement is an assignment of the <code>"odd"</code> string to the <code>result</code> variable.</li>
+<li><strong>Line 3:</strong> Here you see the start of an <a href="https://realpython.com/python-conditional-statements/#introduction-to-the-if-statement" title="Conditional Statements in Python – Real Python - Introduction to the if Statement"><code>if</code> statement</a>.</li>
+<li><strong>Line 4:</strong> The extra indent starts a new block. This block is executed when the conditional expression of the <code>if</code> statement, <code>number % 2 == 0</code>, evaluates to true. In the example, it only consists of a single line where you assign <code>"even"</code> to the <code>result</code> variable.</li>
+<li><strong>Line 5:</strong> The <strong>dedent</strong> that precedes the <a href="https://realpython.com/python-return-statement/" title="The Python return Statement: Usage and Best Practices – Real Python"><code>return</code> statement</a> marks the end of the <code>if</code> statement and its associated block.</li>
+<li><strong>Line 7:</strong> Likewise, you see the dedent that precedes the beginning of the <a href="https://realpython.com/python-for-loop/" title="Python 'for' Loops (Definite Iteration) – Real Python"><code>for</code> loop</a>. Consequently, the <code>for</code> loop starts at the same indent level as the start of the function definition block back on the first line. It marks the end of the function definition block.</li>
+<li><strong>Line 8:</strong> You see the same happening again within the <code>for</code> loop. The first <a href="https://realpython.com/python-print/" title="Your Guide to the Python print() Function – Real Python"><code>print()</code> function</a> call is part of the <code>for</code> loop block.</li>
+<li><strong>Line 9:</strong> This second dedented <code>print()</code> function call isn&rsquo;t part of the <code>for</code> loop block.</li>
+</ul>
+<p>You might have noticed that a colon (<code>:</code>) at the end of a line introduces a new sub-block of code, which should be indented one level. This code block ends when the next statement is dedented again.</p>
+<p>A code block must consist of at least one statement. An empty code block is simply not possible. In the rare occasion that there isn&rsquo;t any statement needed, you can use the <a href="https://realpython.com/python-pass/" title="The pass Statement: How to Do Nothing in Python – Real Python"><code>pass</code> statement</a>, which does nothing at all.</p>
+<p>Finally, you&rsquo;ve probably also noticed that you can use the hash sign (<code>#</code>) for comments.</p>
+<p>The above example will result in the following output:</p>
+<div class="highlight sh"><pre><span></span><code><span class="go">Number 0 is even</span>
+<span class="go">Number 1 is odd</span>
+<span class="go">Number 2 is even</span>
+<span class="go">Number 3 is odd</span>
+<span class="go">This is not part of the loop</span>
+</code></pre></div>
+<p>Although this way of defining blocks may seem weird at first sight and might even scare you off, experience shows that people get used to it sooner than you might be thinking right now.</p>
+<p>There&rsquo;s a helpful <a href="https://www.python.org/dev/peps/pep-0008/" title="PEP 8: Style Guide for Python Code">style guide</a> for Python code called <strong>PEP 8</strong>. It recommends using an indent level of four positions, using spaces. The style guide doesn&rsquo;t recommend using tabs in the source code files. The reason is that different editors and system terminals might use inconsistent tab stop positions and render the code differently for various users or between various operating systems.</p>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> The style guide is an example of a <strong>Python Enhancement Proposal</strong>, or <strong>PEP</strong> for short. PEPs don&rsquo;t only contain the proposals, but they also reflect specifications for implementation, so you can sort of compare PEPs to the union of Java&rsquo;s JEPs and JSRs. <a href="https://www.python.org/dev/peps/" title="PEP 0 -- Index of Python Enhancement Proposals (PEPs) | Python.org">PEP 0</a> lists the index of PEPs.</p>
+</div>
+<p>You can find a lot of interesting information in PEP 8, including Python <a href="https://realpython.com/python-pep8/" title="How to Write Beautiful Python Code With PEP 8 – Real Python">naming conventions</a>. If you read over them, you&rsquo;ll see that these are slightly different from Java&rsquo;s.</p>
+<div><div class="rounded border border-light" style="display:block;position:relative;"><div style="display:block;width:100%;padding-top:12.5%;"></div><div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div></div><a class="small text-muted" href="/account/join/" rel="nofollow"><i aria-hidden="true" class="fa fa-info-circle mr-1"></i>Remove ads</a></div></section><section class="section3" id="a-read-eval-print-loop-from-the-beginning"><h3>A Read-Eval-Print Loop From the Beginning<a class="headerlink" href="#a-read-eval-print-loop-from-the-beginning" title="Permanent link"></a></h3>
+<p>From its inception onwards, Python has always had a built-in <a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop" title="Read–eval–print loop - Wikipedia">read–eval–print loop (REPL)</a>. The REPL reads the shortest possible complete statement, expression, or block, compiles it into bytecode, and has it evaluated. If the evaluated code returns an object other than the <code>None</code> object, it outputs an unambiguous <a href="https://docs.python.org/3/library/functions.html#repr" title="Built-in Functions — Python 3 documentation: repr()">representation</a> of this object. You&rsquo;ll find an explanation of <code>None</code> <a href="#none">later</a> in this tutorial.</p>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> You can compare the Python REPL with <a href="https://openjdk.java.net/jeps/222" title="JEP 222: jshell: The Java Shell (Read-Eval-Print Loop)">Java&rsquo;s JShell (JEP 222)</a>, which has been available since JDK 9.</p>
+</div>
+<p>The following fragment shows how Python&rsquo;s REPL works:</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">zero</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">zero</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">zero</span><span class="p">)</span>
+<span class="go">0.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">complex</span><span class="p">(</span><span class="n">zero</span><span class="p">)</span>
+<span class="go">0j</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="n">zero</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">zero</span><span class="p">)</span>
+<span class="go">&#39;0&#39;</span>
+</code></pre></div>
+<p>As you can see, the interpreter always attempts to show the resulting expression values unambiguously. In the example above, you can see how the <a href="https://realpython.com/python-numbers/" title="Numbers in Python – Real Python">integer</a>, floating point, <a href="https://realpython.com/python-complex-numbers/" title="Simplify Complex Numbers With Python – Real Python">complex</a>, <a href="https://realpython.com/python-boolean/" title="Python Booleans: Optimize Your Code With Truth Values – Real Python">Boolean</a>, and <a href="https://realpython.com/python-strings/" title="Strings and Character Data in Python – Real Python">string</a> values are all displayed differently.</p>
+<p>A difference between Java and Python involves the assignment operator (<code>=</code>). A regular Python assignment, which uses a single equals sign, is a <a href="https://docs.python.org/3/reference/simple_stmts.html#assignment-statements" title="7. Simple statements — Python 3 documentation: Assignment statements">statement</a> rather than an <a href="https://docs.python.org/3/reference/expressions.html" title="6. Expressions — Python 3 documentation">expression</a>, which would yield some value or object.</p>
+<p>This explains why the REPL doesn&rsquo;t print the assignment to the variable <code>zero</code>: statements always evaluate to <code>None</code>. The line following the assignment contains the variable expression, <code>zero</code>, to instruct the REPL to display the resulting variable regardless.</p>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> Python 3.8 introduced an <a href="https://docs.python.org/3/reference/expressions.html#assignment-expressions" title="6. Expressions — Python 3 documentation: Assignment expressions">assignment expression</a> operator (<code>:=</code>), which is also known as the <a href="https://realpython.com/python-walrus-operator/" title="The Walrus Operator: Python 3.8 Assignment Expressions">walrus operator</a>. It assigns values to variables, but unlike a regular assignment, it evaluates them as if in an expression. That&rsquo;s similar to the assignment operator in Java. Note, however, that it&rsquo;s not completely interchangeable with the regular assignment statement. Its scope is actually quite limited.</p>
+</div>
+<p>In the REPL, the underscore special variable (<code>_</code>) holds the value of the last expression, provided it&rsquo;s not <code>None</code>. The following fragment shows how you can use this special variable:</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="go">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span>
+<span class="go">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="go">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">some_var</span> <span class="o">=</span> <span class="n">_</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span>
+<span class="go">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">some_var</span>
+<span class="go">7</span>
+</code></pre></div>
+<p>After you assign the value <code>7</code> to <code>some_var</code>, the special variable <code>_</code> still holds the value <code>6</code>. That&rsquo;s because the assignment statement evaluates to <code>None</code>.</p>
+</section><section class="section3" id="dynamically-typed-and-strongly-typed"><h3>Dynamically Typed and Strongly Typed<a class="headerlink" href="#dynamically-typed-and-strongly-typed" title="Permanent link"></a></h3>
+<p>An important characteristic of a programming language is when, how, and to what extent the language interpreter or compiler performs <a href="https://en.wikipedia.org/wiki/Type_system#Type_checking" title="Type system - Wikipedia: Type checking">type verification</a>.</p>
+<p>Python is a <strong>dynamically typed</strong> language. This means that the types of variables, function parameters, and function return values are checked at runtime rather than at compile time, unlike Java.</p>
+<p>Python is at the same time a <strong>strongly typed</strong> language:</p>
+<ul>
+<li>Every object has a specific type associated with it.</li>
+<li>Explicit conversion is needed between incompatible types.</li>
+</ul>
+<p>Here, you&rsquo;ll explore how Python checks type compatibility at runtime and how you can make types compatible:</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="mi">40</span> <span class="o">+</span> <span class="s2">&quot;2&quot;</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="gr"> File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span>
+<span class="gr">TypeError</span>: <span class="n">unsupported operand type(s) for +: &#39;int&#39; and &#39;str&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">40</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">)</span>  <span class="c1"># Add two numbers</span>
+<span class="go">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;2&quot;</span>  <span class="c1"># Concatenate strings</span>
+<span class="go">&#39;402&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">40</span> <span class="o">*</span> <span class="s2">&quot;2&quot;</span>       <span class="c1"># Repeat string &quot;2&quot; forty times</span>
+<span class="go">&#39;2222222222222222222222222222222222222222&#39;</span>
+</code></pre></div>
+<p>You&rsquo;ll notice that you can&rsquo;t just add an integer value to a string value. This is guarded during runtime. When the interpreter detects a runtime error, it generates an exception. The REPL catches <code>Exception</code> instances and shows the <a href="https://realpython.com/python-traceback/" title="Understanding the Python Traceback – Real Python">traceback</a> leading to the erroneous expression.</p>
+<p>To resolve the issue, you convert one type to the other. If you want to add the two objects together as numbers, you convert the string representing the number into a plain number by using the <code>int()</code> constructor. If you&rsquo;d like to concatenate the two objects as strings instead, then you convert the number into a string by using the <code>str()</code> constructor.</p>
+<p>The last line of the Python session above shows another feature. By multiplying a <a href="https://docs.python.org/3/glossary.html#term-sequence" title="Glossary — Python 3 documentation: sequence">sequence</a> with a number, you get the concatenated result of the original sequence, repeated by the given number.</p>
+<p>Although Python is a dynamically typed language, it&rsquo;s possible to provide the code with <a href="https://realpython.com/python-type-checking/" title="Python Type Checking (Guide) – Real Python">type annotations</a>.</p>
+<p>During runtime, Python does nothing with these annotations except for making them available for introspection. However, static type checker tools exist that can detect inconsistencies between the type declarations and the actual use of type-annotated functions, classes, and variables.</p>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> As stated above, the Python runtime makes type annotations available for introspection by the code. Some libraries make use of this information, such as <a href="" title="Using FastAPI to Build Python Web APIs – Real Python">FastAPI</a>.</p>
+</div>
+<p>Type annotations help you detect errors at an early stage of the code development cycle. Especially in large-scale software projects, they help you make the code more maintainable and keep the codebase in good shape. You typically invoke a static type checker as part of the verification step in the build pipeline. Most IDEs make use of type annotations as well.</p>
+<div><div class="rounded border border-light" style="display:block;position:relative;"><div style="display:block;width:100%;padding-top:12.5%;"></div><div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div></div><a class="small text-muted" href="/account/join/" rel="nofollow"><i aria-hidden="true" class="fa fa-info-circle mr-1"></i>Remove ads</a></div></section><section class="section3" id="cpython-vs-the-jit-compiler"><h3>CPython vs the JIT Compiler<a class="headerlink" href="#cpython-vs-the-jit-compiler" title="Permanent link"></a></h3>
+<p>Unlike Java, Python&rsquo;s reference implementation has no JIT compiler. By far, the most used Python implementation is <strong>CPython</strong>. This is also the <strong>reference implementation</strong>. <a href="https://realpython.com/cpython-source-code-guide/">CPython</a> is a compiler and interpreter that&rsquo;s been written in C and is pretty much available on every conceivable platform.</p>
+<p>CPython loads a source file, which is called a <a href="https://docs.python.org/3/glossary.html#term-module" title="Glossary — Python 3 documentation: module">module</a>, in two steps:</p>
+<ol>
+<li><strong>Compilation:</strong> First, CPython reads the code and compiles it into <a href="https://en.wikipedia.org/wiki/Bytecode" title="Bytecode - Wikipedia">bytecode</a>, which is a sequence of instructions that the CPython bytecode interpreter can execute. To a limited extent, you can compare the compilation phase with how Java&rsquo;s <a href="https://docs.oracle.com/en/java/javase/16/docs/specs/man/javac.html" title="The javac Command"><code>javac</code></a> compiles a <code>.java</code> file into a <code>.class</code> file.</li>
+<li><strong>Execution:</strong> The CPython bytecode interpreter&mdash;in other words, CPython&rsquo;s <a href="https://en.wikipedia.org/wiki/Virtual_machine#Process_virtual_machines" title="Virtual machine - Wikipedia: Process virtual machines">virtual machine (VM)</a>&mdash;subsequently executes the bytecode from the first step.</li>
+</ol>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> Unlike in Java, you can&rsquo;t assume that the same Python bytecode will work with other Python implementations or even between different versions of the same Python implementation. It helps, however, in reducing the time needed to load a module.</p>
+<p>The <a href="https://docs.python.org/3/tutorial/modules.html#compiled-python-files" title="6. Modules — Python 3 documentation: &quot;Compiled&quot; Python Files">compiled modules</a> are, if possible, stored in a <a href="https://en.wikipedia.org/wiki/Cache_(computing)" title="Cache (computing) - Wikipedia">cache</a> directory.</p>
+</div>
+<p>Unlike the mainstream Java VM implementations, CPython does <em>not</em> subsequently compile the bytecode into <a href="https://en.wikipedia.org/wiki/Object_code" title="Object code - Wikipedia">native object code</a>. There are, however, other Python implementations that work differently:</p>
+<ul>
+<li>There&rsquo;s a Python implementation for the Java platform called <a href="https://www.jython.org/" title="Home | Jython">Jython</a>. It runs in the JVM, and there&rsquo;s a direct interoperability between Java and Python.</li>
+<li>Likewise, there&rsquo;s a version called <a href="https://ironpython.net/" title="IronPython.net /">IronPython</a> that runs on the .NET platform.</li>
+<li>There&rsquo;s an implementation using a <a href="https://en.wikipedia.org/wiki/Just-in-time_compilation" title="Just-in-time compilation - Wikipedia">Just-in-Time (JIT)</a> compiler called <a href="https://www.pypy.org/" title="PyPy">PyPy</a>. On average, PyPy is 4.2 times faster than CPython.</li>
+<li>Finally, <a href="https://www.graalvm.org/docs/introduction/" title="GraalVM Documentation">GraalVM</a> is a high-performance runtime that supports many programming languages. It provides <a href="https://www.graalvm.org/docs/getting-started/#run-python" title="Getting Started with GraalVM: Run Python">experimental support</a> for a fairly recent Python version.</li>
+</ul>
+<p>The list above isn&rsquo;t exhaustive. The Python site contains a list of <a href="https://www.python.org/download/alternatives/" title="Alternative Python Implementations | Python.org">alternative implementations</a> and distributions.</p>
+</section><section class="section3" id="built-in-function-and-operator-overloading"><h3>Built-in Function and Operator Overloading<a class="headerlink" href="#built-in-function-and-operator-overloading" title="Permanent link"></a></h3>
+<p>As a Java developer, you might know the term <strong>overloading</strong> from <a href="https://docs.oracle.com/javase/specs/jls/se14/html/jls-8.html#jls-8.4.9">method overloading</a>. While there&rsquo;s a dynamic equivalent, <a href="https://realpython.com/python-multiple-constructors/#providing-multiple-constructors-with-singledispatchmethod"><code>@singledispatchmethod</code></a>, available in Python that provides a somewhat similar functionality, there exists yet another kind of overloading in Python that you may find much more useful.</p>
+<p>You can define new behavior of your custom-built classes for any eligible Python built-in functions and operators. </p>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> In this context, you can consider eligible functions and operators to be those that allow you to overload their behavior.</p>
+</div>
+<p>Python provides an accessible way to achieve <a href="https://realpython.com/operator-function-overloading/" title="Operator and Function Overloading in Custom Python Classes – Real Python">function and operator overloading</a>.</p>
+<p>You can try this by defining <a href="https://docs.python.org/3/reference/datamodel.html#special-method-names" title="Data model / Special Method Names — Python 3 documentation">specially named methods</a> in your class. The name of such a method starts and ends with two underscores, like <code>.__len__()</code> or <code>.__add__()</code>. An identifier having such a name is called a <strong>dunder</strong>, short for <strong>double underscore</strong> (<code>__</code>).</p>
+<p>When you call an eligible built-in function with an object for which a corresponding dunder method is present, Python delegates the behavior to this method. Likewise, when you use an operator for which one or more of the operands contain a corresponding dunder method, Python delegates the behavior to that method.</p>
+<p>For example, you can define <code>.__len__()</code> to provide behavior to the built-in <a href="https://realpython.com/len-python-function/"><code>len()</code></a> function. Likewise, you can define <code>.__add__()</code> to provide behavior to the addition operator (<code>+</code>).</p>
+<p>This feature makes it possible to apply the nice, expressive, and terse syntax of Python code not only to the standard objects but to custom objects as well.</p>
+</section><section class="section3" id="nice-syntax-for-functional-processing-of-collections"><h3>Nice Syntax for Functional Processing of Collections<a class="headerlink" href="#nice-syntax-for-functional-processing-of-collections" title="Permanent link"></a></h3>
+<p>In Java, you might have constructed lists by combining calls of <code>map()</code>, <code>filter()</code>, and lambda expressions. You can do the same in Python, using the same functions and techniques. Using these constructs doesn&rsquo;t always result in the most readable pieces of code.</p>
+<p>Python provides an elegant alternative syntax for this basic functional manipulation of lists and other collections. You&rsquo;d use <a href="https://docs.python.org/3/glossary.html#term-list-comprehension" title="Glossary — Python 3 documentation: list comprehension">list comprehensions</a> for lists and other kinds of comprehensions for other collections. If you want to know more about comprehensions in Python, then you can explore <a href="https://realpython.com/list-comprehension-python/" title="When to Use a List Comprehension in Python – Real Python">when to use a list comprehension</a>.</p>
+<div><div class="rounded border border-light" style="display:block;position:relative;"><div style="display:block;width:100%;padding-top:12.5%;"></div><div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div></div><a class="small text-muted" href="/account/join/" rel="nofollow"><i aria-hidden="true" class="fa fa-info-circle mr-1"></i>Remove ads</a></div></section><section class="section3" id="everything-is-an-object"><h3>Everything Is an Object<a class="headerlink" href="#everything-is-an-object" title="Permanent link"></a></h3>
+<p>In Java, not everything is an object, despite the fact that the only place where you can put your code is inside a Java class. For example, the Java primitive <code>42</code> isn&rsquo;t an object.</p>
+<p>Just like Java, Python also fully supports an object-oriented style of programming. Different from Java is that <strong>everything is an object</strong> in Python. Some examples of Python objects are:</p>
+<ul>
+<li><a href="https://realpython.com/python-numbers/" title="Numbers in Python">Numeric values</a></li>
+<li><a href="https://realpython.com/documenting-python-code/" title="Documenting Python Code: A Complete Guide – Real Python">Documentation strings</a></li>
+<li><a href="https://realpython.com/defining-your-own-python-function/" title="Defining Your Own Python Function">Functions and methods</a></li>
+<li><a href="https://realpython.com/python-modules-packages/" title="Python Modules and Packages – An Introduction">Modules</a></li>
+<li>Stack tracebacks</li>
+<li>Byte-compiled code objects</li>
+<li><a href="https://realpython.com/python3-object-oriented-programming/" title="Object-Oriented Programming (OOP) in Python 3">Classes themselves</a></li>
+</ul>
+<p>Because they&rsquo;re objects, you can store all of these in variables, pass them around, and introspect them at runtime.</p>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> As you read above, classes are objects. Since objects are instances of classes by definition, classes <em>must</em> be instances of something as well. </p>
+<p>Indeed, these are instances of a <a href="https://docs.python.org/3/glossary.html#term-metaclass" title="Glossary — Python 3 documentation: metaclass">metaclass</a>. The standard metaclass is <code>type</code>, but you can create alternative <a href="https://realpython.com/python-metaclasses/" title="Python Metaclasses – Real Python">metaclasses</a>, usually by deriving from <code>type</code>, to alter the way classes are created.</p>
+</div>
+<p>Metaclasses, combined with the ability to overload built-in functions and operators, are part of what makes Python a versatile programming toolkit. They allow you to create your own programmable universe of additional or alternative behavior of classes and instances.</p>
+</section></section><section class="section2" id="what-aspects-of-java-and-python-are-similar"><h2>What Aspects of Java and Python Are Similar?<a class="headerlink" href="#what-aspects-of-java-and-python-are-similar" title="Permanent link"></a></h2>
+<p>Despite the differences, you&rsquo;ve probably also spotted some similarities between Java and Python already. That&rsquo;s because Python and Java were both inspired by the C programming language. During your continuing exploration of Python, you&rsquo;ll discover a lot more similarities to Java.</p>
+<section class="section3" id="class-based-object-orientation"><h3>Class-Based Object Orientation<a class="headerlink" href="#class-based-object-orientation" title="Permanent link"></a></h3>
+<p>Python is a <a href="https://en.wikipedia.org/wiki/Class-based_programming" title="Class-based programming - Wikipedia">class-based</a>, <a href="https://en.wikipedia.org/wiki/Object-oriented_programming" title="Object-oriented programming - Wikipedia">object-oriented</a> programming language, which is also one of the main features of Java. However, the set of object-oriented features differ between both languages and to address these in sufficient detail deserves a tutorial of its own.</p>
+<p>Fortunately, you can dig deeper into <a href="https://realpython.com/oop-in-python-vs-java/" title="Object-Oriented Programming in Python vs Java – Real Python">object-oriented programming in Python vs Java</a> to get an overview of the differences between Java and Python regarding object-oriented programming constructs. You can also check out an overview of <a href="https://realpython.com/python3-object-oriented-programming/" title="Object-Oriented Programming (OOP) in Python 3 – Real Python">object-oriented programming in Python 3</a> to expand your knowledge about this topic.</p>
+</section><section class="section3" id="operators"><h3>Operators<a class="headerlink" href="#operators" title="Permanent link"></a></h3>
+<p>One aspect where you might notice the languages&rsquo; shared heritage is in how they use operators. Many of them have the same meaning in both languages.</p>
+<p>To start off, compare the well-known arithmetic operators in Java vs Python. The addition operator (<code>+</code>), subtraction operator (<code>-</code>), multiplication operator (<code>*</code>), division operator (<code>/</code>), and modulo operator (<code>%</code>) have almost the same purpose in both languages&mdash;<em>except</em> for the division operator on integer-like operands.</p>
+<p>The same holds true for the <a href="https://realpython.com/python-bitwise-operators/" title="Bitwise Operators in Python – Real Python">bitwise operators</a>: the bitwise OR operator (<code>|</code>), the bitwise AND operator (<code>&amp;</code>), the bitwise XOR operator (<code>^</code>), and the unary bitwise NOT operator (<code>~</code>), as well as the bitwise shift operators for left shift (<code>&lt;&lt;</code>) and right shift (<code>&gt;&gt;</code>).</p>
+<p>You can use the square bracket syntax (<code>[]</code>) in Python to access an element of a sequence, just like how you can work with Java&rsquo;s <a href="https://docs.oracle.com/javase/specs/jls/se16/html/jls-10.html#jls-10.4" title="Chapter 10. Arrays: Array Access">array access</a>.</p>
+<p>The later sections on data types provide more detail on these and some additional operators. Or, if you want to know more about them right now, you can read about <a href="https://realpython.com/python-operators-expressions/" title="Operators and Expressions in Python – Real Python">operators and expressions in Python</a>.</p>
+</section><section class="section3" id="string-formatting"><h3>String Formatting<a class="headerlink" href="#string-formatting" title="Permanent link"></a></h3>
+<p>Initially, Python offered string formatting functionality based on how the <code>printf</code> family of functions handles this in the C programming language. This is similar to Java&rsquo;s <code>String.format()</code>. In Python, the <code>%</code> operator performs this function. The left-hand side of the operator contains the format string, and the right-hand side contains either a <a href="https://realpython.com/python-lists-tuples/" title="Lists and Tuples in Python – Real Python">tuple</a> of positional parameters or a <a href="https://realpython.com/python-dicts/" title="Dictionaries in Python – Real Python">dictionary</a> of keyed parameters.</p>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> You&rsquo;ll see more on tuples and dictionaries later on in this tutorial.</p>
+</div>
+<p>The following session shows some examples:</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;Hello, </span><span class="si">%s</span><span class="s2">!&quot;</span> <span class="o">%</span> <span class="s2">&quot;world&quot;</span>             <span class="c1"># %-style, single argument</span>
+<span class="go">&#39;Hello, world!&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;The </span><span class="si">%s</span><span class="s2"> is </span><span class="si">%d</span><span class="s2">.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="s2">&quot;answer&quot;</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>   <span class="c1"># %-style, positional</span>
+<span class="go">&#39;The answer is 42.&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;The </span><span class="si">%(word)s</span><span class="s2"> is </span><span class="si">%(value)d</span><span class="s2">.&quot;</span> \
+<span class="gp">... </span><span class="o">%</span> <span class="nb">dict</span><span class="p">(</span><span class="n">word</span><span class="o">=</span><span class="s2">&quot;answer&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>    <span class="c1"># %-style, key-based</span>
+<span class="go">&#39;The answer is 42.&#39;</span>
+</code></pre></div>
+<p>More recently, Python has embraced other ways of <a href="https://realpython.com/python-formatted-output/" title="A Guide to the Newer Python String Format Techniques – Real Python">formatting strings</a>. One is to use the <code>.format()</code> string method, where the replacement fields are indicated with curly braces (<code>{}</code>). An example of this is <code>"The {word} is {value}.".format(word="answer", value=42)</code>.</p>
+<p>Since Python 3.6, you can also use <a href="https://realpython.com/python-f-strings/" title="Python 3's f-Strings: An Improved String Formatting Syntax (Guide) – Real Python">formatted string literals</a>, also known as <strong>f-strings</strong>. Suppose you have two variables in scope named <code>word</code> and <code>value</code>. In that case, the expression <code>f"The {word} is {value}."</code> renders the same string for you as the <code>.format()</code> example above.</p>
+<div><div class="rounded border border-light" style="display:block;position:relative;"><div style="display:block;width:100%;padding-top:12.5%;"></div><div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div></div><a class="small text-muted" href="/account/join/" rel="nofollow"><i aria-hidden="true" class="fa fa-info-circle mr-1"></i>Remove ads</a></div></section><section class="section3" id="control-flow-constructs"><h3>Control Flow Constructs<a class="headerlink" href="#control-flow-constructs" title="Permanent link"></a></h3>
+<p>The control flow constructs are similar when comparing Java vs Python. This means that you probably intuitively recognize many of the control flow constructs. On a more detailed level, however, there are also differences.</p>
+<p>A Python <a href="https://realpython.com/python-while-loop/" title="Python 'while' Loops (Indefinite Iteration) – Real Python"><code>while</code></a> loop is similar to Java&rsquo;s:</p>
+<div class="highlight python"><pre><span></span><code><span class="k">while</span> <span class="p">(</span><span class="n">word</span> <span class="o">:=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter word: &quot;</span><span class="p">))</span> <span class="o">!=</span> <span class="s2">&quot;END&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;READY&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Line by line, the code fragment copies the standard input to the standard output until the line equals <code>"END"</code>. That line isn&rsquo;t copied, but the text <code>"READY"</code> is written instead, followed by a newline.</p>
+<p>You&rsquo;ve probably noticed the added value of the walrus operator in a construct like this. The <a href="https://docs.python.org/3/reference/expressions.html#operator-precedence" title="6. Expressions — Python 3 documentation: Operator precedence">precedence</a> of this assignment <em>expression</em> operator is the lowest of all operators. This means that you frequently need to add parentheses around the assignment expression when it&rsquo;s part of a larger expression, just like in Java.</p>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> Python has no <code>do {...} while (...)</code> loop construct.</p>
+</div>
+<p>The Python <a href="https://realpython.com/python-for-loop/" title="Python 'for' Loops (Definite Iteration) – Real Python"><code>for</code></a> loop is similar to the Java for-each loop. This means that if you want to iterate over a list of the first five Roman numerals, for example, you could code it using a similar logic:</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">roman_numerals</span> <span class="o">=</span> <span class="s2">&quot;I II III IV V&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">roman_numerals</span>
+<span class="go">[&#39;I&#39;, &#39;II&#39;, &#39;III&#39;, &#39;IV&#39;, &#39;V&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">numeral</span> <span class="ow">in</span> <span class="n">roman_numerals</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">numeral</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">I</span>
+<span class="go">II</span>
+<span class="go">III</span>
+<span class="go">IV</span>
+<span class="go">V</span>
+</code></pre></div>
+<p>You might notice that using <code>str.split()</code> is a convenient way to create a list of words.</p>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> It&rsquo;s not only a <code>list</code> instance that you can iterate over this way, but any <a href="https://docs.python.org/3/glossary.html#term-iterable" title="Glossary — Python 3 documentation: iterable">iterable</a>.</p>
+</div>
+<p>Occasionally, you might need a running counter instead. In that case, you&rsquo;d use <code>range()</code>:</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">0</span>
+<span class="go">1</span>
+<span class="go">2</span>
+<span class="go">3</span>
+<span class="go">4</span>
+</code></pre></div>
+<p>In this example, <code>i</code> references the next value of the requested range with every iteration. That value is subsequently printed.</p>
+<p>In the rare case where you want to iterate over a collection and at the same time want to have a running counter alongside it, you can use <a href="https://realpython.com/python-enumerate/"><code>enumerate()</code></a>:</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">numeral</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="s2">&quot;I II III IV V&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">(),</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">numeral</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">1 I</span>
+<span class="go">2 II</span>
+<span class="go">3 III</span>
+<span class="go">4 IV</span>
+<span class="go">5 V</span>
+</code></pre></div>
+<p>The example above shows the functionality of the two preceding examples combined in one single loop. By default, the accompanying counter starts at zero, but with the optional keyword argument <code>start</code>, you can specify another value.</p>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> Check out <a href="https://realpython.com/python-enumerate/" title="Python enumerate(): Simplify Looping With Counters – Real Python">Python enumerate(): Simplify Looping With Counters</a> if you want to know more about Python loops and <code>enumerate()</code>.</p>
+</div>
+<p>Python also understands the <a href="https://docs.python.org/3/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops" title="4. More Control Flow Tools — Python 3 documentation: break and continue Statements, and else Clauses on Loops"><code>break</code> and <code>continue</code></a> statements.</p>
+<p>Another control flow construct similar to Java is the <strong><code>if</code> statement</strong>:</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="n">adjective</span> <span class="o">=</span> <span class="s2">&quot;not enough&quot;</span>
+<span class="gp">... </span>    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="n">adjective</span> <span class="o">=</span> <span class="s2">&quot;just enough&quot;</span>
+<span class="gp">... </span>    <span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="n">adjective</span> <span class="o">=</span> <span class="s2">&quot;more than enough&quot;</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;You have </span><span class="si">{</span><span class="n">adjective</span><span class="si">}</span><span class="s2"> items (</span><span class="si">{</span><span class="n">n</span><span class="si">:</span><span class="s2">d</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">You have not enough items (0)</span>
+<span class="go">You have just enough items (1)</span>
+<span class="go">You have more than enough items (2)</span>
+</code></pre></div>
+<p>As demonstrated above, the Python <code>if ... else</code> construct also supports an <code>elif</code> keyword, which is helpful because there&rsquo;s no plain <code>switch ... case</code> statement.</p>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> The recently released Python 3.10 version contains a new feature named <a href="https://www.python.org/dev/peps/pep-0636/" title="PEP 636 -- Structural Pattern Matching: Tutorial | Python.org">structural pattern matching</a>, which introduces the <code>match</code> and <code>case</code> keywords, but it behaves quite differently from Java&rsquo;s <a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.html" title="The switch Statement - The Java Tutorials - Learning the Java Language - Language Basics"><code>switch</code> statement</a>.</p>
+<p>This new language feature is inspired by the <a href="https://docs.scala-lang.org/tour/pattern-matching.html" title="Pattern Matching | Tour of Scala | Scala Documentation">pattern matching</a> statement of Scala, which is another programming language running on the JVM.</p>
+</div>
+<p>While many coding constructs look similar on the surface, there are still many differences. For example, Python loops, as well as <a href="https://realpython.com/python-exceptions/" title="Python Exceptions: An Introduction – Real Python">exception catch constructs</a>, support an <code>else:</code> part. Furthermore, Python provides a <a href="https://realpython.com/python-with-statement/" title="Context Managers and Python's with Statement – Real Python"><code>with</code> statement</a> for context managers.</p>
+<div><div class="rounded border border-light" style="display:block;position:relative;"><div style="display:block;width:100%;padding-top:12.5%;"></div><div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div></div><a class="small text-muted" href="/account/join/" rel="nofollow"><i aria-hidden="true" class="fa fa-info-circle mr-1"></i>Remove ads</a></div></section></section><section class="section2" id="java-vs-python-what-are-the-high-level-native-data-types"><h2>Java vs Python: What Are the High-Level Native Data Types?<a class="headerlink" href="#java-vs-python-what-are-the-high-level-native-data-types" title="Permanent link"></a></h2>
+<p>In the following subsections, you&rsquo;ll find a condensed overview of Python&rsquo;s standard types. The focus is on where these types or their associated operators differ from Java or how they compare to the corresponding Java collection class.</p>
+<section class="section3" id="numeric-types-and-their-operators"><h3>Numeric Types and Their Operators<a class="headerlink" href="#numeric-types-and-their-operators" title="Permanent link"></a></h3>
+<p>Python offers a variety of numeric types to choose from to suit your particular field of application. It has three numeric types built in:</p>
+<div class="table-responsive">
+<table class="table table-hover">
+<thead>
+<tr>
+<th>Type</th>
+<th>Type name</th>
+<th>Example literal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Integer</td>
+<td><code>int</code></td>
+<td><code>42</code></td>
+</tr>
+<tr>
+<td>Floating-Point</td>
+<td><code>float</code></td>
+<td><code>3.14</code></td>
+</tr>
+<tr>
+<td>Complex</td>
+<td><code>complex</code></td>
+<td><code>1+2j</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If you compare both languages, then you&rsquo;ll find that Python integers can contain arbitrary long values only limited by the amount of (virtual) memory your machine has available for you. You can think of them as an intelligent blend of fixed-precision native integers&mdash;or primitive integer types, as Java calls them&mdash;and Java&rsquo;s <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/math/BigInteger.html" title="BigInteger (Java SE 11 &amp; JDK 11 )"><code>BigInteger</code></a> numbers, with the following consequences:</p>
+<ol>
+<li>You have all the <strong>conveniences of arbitrary-precision integers</strong>, and you can use all the well-known symbolic operators on them.</li>
+<li>Python applies <strong>fast fixed-precision integer arithmetic</strong> on the provided values when the values are small enough to allow for that.</li>
+</ol>
+<p>By using the prefixes <code>0x</code>, <code>0o</code>, and <code>0b</code>, you can specify the Python integers as hexadecimal, octal, and binary constants, respectively.</p>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> This means that octal numbers are <em>not</em> prefixed with just one or more leading zeros (<code>0</code>), which is different from Java.</p>
+</div>
+<p>Comparing well-known arithmetic operators <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, and <code>%</code> in Java vs Python, they have the same meaning in both languages, except for the division operator on integer-like types. The <a href="https://docs.python.org/3/library/operator.html#operator.truediv" title="operator — Standard operators as functions — Python 3 documentation: operator.truediv()">truediv</a> operator (<code>/</code>) applied on <code>int</code> operands yields a <code>float</code> value in Python, which is different from Java. Python has the <a href="https://docs.python.org/3/library/operator.html#operator.floordiv" title="operator — Standard operators as functions — Python 3 documentation: operator.floordiv()">floordiv</a> operator (<code>//</code>) for division that rounds down to the nearest integer, comparable to the division operator (<code>/</code>) in Java:</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="mi">11</span> <span class="o">/</span> <span class="mi">4</span>          <span class="c1"># truediv</span>
+<span class="go">2.75</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">11.0</span> <span class="o">//</span> <span class="mi">4</span>       <span class="c1"># floordiv, despite float operand(s)</span>
+<span class="go">2.0</span>
+</code></pre></div>
+<p>Furthermore, Python provides the double-asterisk operator (<code>**</code>) for exponentiation as an alternative to the two-argument <a href="https://docs.python.org/3/library/functions.html#pow" title="Built-in Functions — Python 3 documentation: pow()"><code>pow()</code></a> function. The <a href="https://docs.python.org/3/library/operator.html#operator.matmul" title="operator — Standard operators as functions — Python 3 documentation: operator.matmul()">matmul</a> operator (<code>@</code>) is reserved as an additional operator for types provided by external packages, intended as a convenience notation for matrix multiplication.</p>
+<p>Both Python and Java adopted the <a href="https://realpython.com/python-bitwise-operators/" title="Bitwise Operators in Python – Real Python">bitwise operators</a> from the C programming language. This means that the bitwise operators (<code>|</code>, <code>&amp;</code>, <code>^</code>, and unary <code>~</code>) have the same meaning in both programming languages.</p>
+<p>If you want to use these operators on negative values, then it&rsquo;s good to know that in Python, integers are represented as <a href="https://en.wikipedia.org/wiki/Two%27s_complement" title="Two's complement - Wikipedia">two&rsquo;s complement</a> values in a conceptually infinite large space to hold the bits. This means that negative values conceptually have an infinite amount of leading <code>1</code> bits, just like positive numbers conceptually have an infinite amount of leading <code>0</code> bits:</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="nb">bin</span><span class="p">(</span><span class="o">~</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">&#39;-0b1&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">bin</span><span class="p">(</span><span class="o">~</span><span class="mi">0</span> <span class="o">&amp;</span> <span class="mb">0b1111</span><span class="p">)</span>       <span class="c1"># ~0 is an &quot;infinite&quot; sequence of ones</span>
+<span class="go">&#39;0b1111&#39;</span>
+</code></pre></div>
+<p>The code fragment above indicates that regardless of the value you choose, if you bitwise-AND this value with the constant <code>~0</code>, then the resulting value is equal to the chosen value. This implies that the constant <code>~0</code> conceptually is an infinite sequence of <code>1</code> bits.</p>
+<p>The <strong>bit-shift</strong> operators (<code>&lt;&lt;</code> and <code>&gt;&gt;</code>) are also available. There is, however, no equivalent of Java&rsquo;s bitwise <a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/op3.html" title="Bitwise and Bit Shift Operators (The Java™ Tutorials &gt; Learning the Java Language &gt; Language Basics)">zero-fill right shift</a> operator (<code>&gt;&gt;&gt;</code>), since that makes no sense in a number system with arbitrary long integers. There&rsquo;s no <strong>most significant</strong> bit within reach. Another difference between both languages is that Python doesn&rsquo;t allow shifting bits with a negative shift count.</p>
+<p>The Python standard library provides other numerical types as well. There&rsquo;s <a href="https://docs.python.org/3/library/decimal.html" title="decimal — Decimal fixed point and floating point arithmetic — Python 3 documentation"><code>decimal.Decimal</code></a> for decimal fixed-point and floating-point arithmetic, which is comparable to Java&rsquo;s <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/math/BigDecimal.html" title="BigDecimal (Java SE 11 &amp; JDK 11 )"><code>BigDecimal</code></a>. There&rsquo;s a <a href="https://docs.python.org/3/library/fractions.html" title="fractions — Rational numbers — Python 3 documentation"><code>fractions.Fraction</code></a> class for rational numbers, which is comparable to <a href="http://commons.apache.org/proper/commons-math/userguide/fraction.html" title="Math – The Commons Math User Guide - Fractions">Apache Commons Math Fractions</a>. Note that these types are <em>not</em> classified as built-in numeric types.</p>
+</section><section class="section3" id="basic-sequence-types"><h3>Basic Sequence Types<a class="headerlink" href="#basic-sequence-types" title="Permanent link"></a></h3>
+<p>Sequence types are containers in which you can access their elements using integer indices. <a href="#strings">Strings</a> and <a href="#bytes">byte sequences</a> are also sequence types. These are presented a few sections later. Python has three basic sequence types built in:</p>
+<div class="table-responsive">
+<table class="table table-hover">
+<thead>
+<tr>
+<th>Type</th>
+<th>Type name</th>
+<th>Example literal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>List</td>
+<td><code>list</code></td>
+<td><code>[41, 42, 43]</code></td>
+</tr>
+<tr>
+<td>Tuple</td>
+<td><code>tuple</code></td>
+<td><code>("foo", 42, 3.14)</code></td>
+</tr>
+<tr>
+<td>Range</td>
+<td><code>range</code></td>
+<td><code>range(0, 9, 2)</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>As you can see, the syntactic difference between list and tuple initializers are the square brackets (<code>[]</code>) versus the parentheses (<code>()</code>).</p>
+<p>A Python <strong>list</strong> is similar to Java&rsquo;s <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayList.html" title="ArrayList (Java SE 11 &amp; JDK 11 )"><code>ArrayList</code></a>, and it&rsquo;s <a href="https://docs.python.org/3/glossary.html#term-mutable" title="Glossary — Python 3 documentation: mutable">mutable</a>. You typically use this kind of container for a homogeneous collection, just like in Java. In Python, however, it&rsquo;s possible to store objects of unrelated types.</p>
+<p>A <strong>tuple</strong>, on the other hand, is more similar to an <a href="https://docs.python.org/3/glossary.html#term-immutable" title="Glossary — Python 3 documentation: immutable">immutable</a> version of a <a href="https://www.javatuples.org/" title="javatuples - Main"><code>Pair</code></a>-like class in Java, except it&rsquo;s for an arbitrary number of entries instead of two. Empty parentheses (<code>()</code>) denote an empty tuple. A construct like <code>(3,)</code> denotes a tuple containing a single element. In this case, the single element is <code>3</code>.</p>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> Did you notice the peculiar syntax for a <code>tuple</code> with just one single element? See the following session to spot the difference:</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">3</span><span class="p">,)</span>
+<span class="go">(3,)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">_</span><span class="p">)</span>
+<span class="go">&lt;class &#39;tuple&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">_</span><span class="p">)</span>
+<span class="go">&lt;class &#39;int&#39;&gt;</span>
+</code></pre></div>
+<p>If you hadn&rsquo;t added the trailing comma, then the expression would just be interpreted as an object inside parentheses.</p>
+</div>
+<p>A <strong>range</strong> yields a sequence of numbers that you typically use in loops. You&rsquo;ve seen an example of this earlier in this tutorial. If you want to learn more about ranges in Python, you can check out <a href="https://realpython.com/python-range/" title="The Python range() Function (Guide) – Real Python">this guide to the range() function</a>.</p>
+<p>To select an <strong>element</strong> from a sequence, you can specify the zero-based index between square brackets, as in <code>some_sequence[some_index]</code>. Negative indices count backward from the end, so <code>-1</code> denotes the last element.</p>
+<p>You can also select a <strong>slice</strong> from a sequence. This is a selection of zero, one, or more elements, yielding an object of the same kind as the original sequence. You can specify a <code>start</code>, <code>stop</code>, and <code>step</code> value, also known as the stride. An example of slicing syntax is <code>some_sequence[&lt;start&gt;:&lt;stop&gt;:&lt;step&gt;]</code>.</p>
+<p>All these values are optional, and practical defaults are taken when they&rsquo;re not otherwise specified. Reading about <a href="https://realpython.com/python-lists-tuples/" title="Lists and Tuples in Python – Real Python">lists and tuples in Python</a> will be helpful if you want to know more about lists, tuples, indices, and slices.</p>
+<p>For positive indices, Python syntax is similar to how you <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Arrays.html#copyOfRange(boolean[],int,int)" title="Arrays (Java SE 11 &amp; JDK 11 )">select elements</a> in Java arrays.</p>
+<p>You can concatenate most sequences using the plus sign operator (<code>+</code>) and repeat them by using the asterisk operator (<code>*</code>):</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="s2">&quot;testing&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="go">[&#39;testing&#39;, &#39;one&#39;, &#39;two&#39;, &#39;one&#39;, &#39;two&#39;]</span>
+</code></pre></div>
+<p>You can&rsquo;t accomplish concatenation or sequence repetition with ranges, but you can slice them. For example, try out <code>range(6, 36, 3)[7:2:-2]</code> and consider what you get as a result. </p>
+<div><div class="rounded border border-light" style="display:block;position:relative;"><div style="display:block;width:100%;padding-top:12.5%;"></div><div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div></div><a class="small text-muted" href="/account/join/" rel="nofollow"><i aria-hidden="true" class="fa fa-info-circle mr-1"></i>Remove ads</a></div></section><section class="section3" id="dictionaries"><h3>Dictionaries<a class="headerlink" href="#dictionaries" title="Permanent link"></a></h3>
+<p>A dictionary in Python, <a href="https://docs.python.org/3/library/stdtypes.html#dict" title="Built-in Types — Python 3 documentation: class dict()"><code>dict</code></a>, is similar to Java&rsquo;s <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedHashMap.html" title="LinkedHashMap (Java SE 11 &amp; JDK 11 )"><code>LinkedHashMap</code></a>. The syntax of a dict initializer constant is a sequence of comma-separated <code>key: value</code> entries between curly braces (<code>{}</code>). An example of this is <code>{"pi": 3.14, "e": 2.71}</code>.</p>
+<p>To select an element from a dict or any other <a href="https://docs.python.org/3/glossary.html#term-mapping" title="Glossary — Python 3 documentation: mapping">mapping</a>, you can specify the key between square brackets (<code>[]</code>), as in <code>math_symbols["pi"]</code>. Both keys and values can be any object, but keys need to be <a href="https://docs.python.org/3/glossary.html#term-hashable" title="Glossary — Python 3 documentation: hashable">hashable</a>, which means that they&rsquo;re usually <a href="https://docs.python.org/3/glossary.html#term-immutable" title="Glossary — Python 3 documentation: immutable">immutable</a>&mdash;or should behave like immutable objects, at least. Keys don&rsquo;t necessarily need to be all of the same type, although they usually are. The same applies to values.</p>
+<p>For additional info, you can read more about <a href="https://realpython.com/python-dicts/" title="Dictionaries in Python – Real Python">dictionaries in Python</a> or check out the Python documentation on <a href="https://docs.python.org/3/library/stdtypes.html#typesmapping" title="Built-in Types — Python 3 documentation: Mapping Types --- dict">mapping types</a>.</p>
+</section><section class="section3" id="sets"><h3>Sets<a class="headerlink" href="#sets" title="Permanent link"></a></h3>
+<p>Python also provides <a href="https://docs.python.org/3/library/stdtypes.html#set" title="Built-in Types — Python 3 documentation: set">sets</a>. You can initialize a set with a syntax like <code>{"pi", "e"}</code> or by using the <code>set()</code> constructor syntax, using an iterable as an argument. To create an empty set, you use the expression <code>set()</code> since the literal <code>{}</code> was already given to dictionaries.</p>
+<p>Sets use hashing in the underlying implementation. When you iterate over a set, take into account that the items will appear in apparently random order, just like in Java. Moreover, the order might even change between distinct Python invocations.</p>
+<p>Some operators have been overloaded for operations on sets. For details, you can read more about <a href="https://realpython.com/python-sets/" title="Sets in Python – Real Python">sets in Python</a>.</p>
+</section><section class="section3" id="strings"><h3>Strings<a class="headerlink" href="#strings" title="Permanent link"></a></h3>
+<p>Just like in Java, strings in Python are immutable sequences of Unicode elements. String literals are specified between double quotes (<code>"</code>), or you can also specify them between single quotes (<code>'</code>), which is different from Java.</p>
+<p>Two examples of strings are <code>"foo"</code> and <code>'bar'</code>. The different quotation marks don&rsquo;t necessarily have any different meaning when defining a string. You should note, however, that if you&rsquo;re using any quotation marks themselves as part of the string, you&rsquo;ll have to escape them if they also happen to be the delimiters of the string.</p>
+<p>Like in Java, the backslash (<code>\</code>) in Python is the character that introduces an <a href="https://en.wikipedia.org/wiki/Escape_sequence" title="Escape sequence - Wikipedia">escape sequence</a>. The Python interpreter recognizes escape sequences also known in Java, like <code>\b</code>, <code>\n</code>, <code>\t</code>, and a few additional ones from the C programming language.</p>
+<p>By default, Python assumes UTF-8 encoding of your Python source files. This means that you can put a Unicode literal directly in a string, like in the case of <code>"é"</code>. You can also use the 16- or 32-bit hexadecimal representation of its code point. For <code>"é"</code>, you would do this by using the <code>\u00E9</code> or <code>\U000000E9</code> escape sequences. Note the difference between the lowercase <code>\u</code> and uppercase <code>\U</code> escape sequences. Finally, it&rsquo;s also possible to provide its Unicode description, like <code>\N{Latin Small Letter E with acute}</code>.</p>
+<p>You can use Unicode characters even in Python identifiers, but then there&rsquo;s the question of whether or not that&rsquo;s an advisable thing to do.</p>
+<p>In case you&rsquo;re prefixing the string with <code>r</code>, like in <code>r"raw\text"</code>, then the backslash loses its special meaning. This is especially convenient when you want to specify <a href="https://realpython.com/regex-python/" title="Regular Expressions: Regexes in Python (Part 1) – Real Python">regular expressions</a>.</p>
+<p>You can also <strong>triple-quote</strong> your strings as a convenient way to create multiline strings, like in the following example:</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;This is a</span>
+<span class="gp">... </span><span class="s2">       multiline</span>
+<span class="gp">... </span><span class="s2">       string.</span>
+<span class="gp">... </span><span class="s2">       &quot;&quot;&quot;</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">splitlines</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">line</span><span class="p">))</span>
+<span class="gp">...</span>
+<span class="go">&#39;This is a&#39;</span>
+<span class="go">&#39;       multiline&#39;</span>
+<span class="go">&#39;       string.&#39;</span>
+<span class="go">&#39;       &#39;</span>
+</code></pre></div>
+<p>You can compare this type of string with Java <a href="https://openjdk.java.net/jeps/378" title="JEP 378: Text Blocks">text blocks (JEP 378)</a>, although with other syntactic restrictions and with another preservation of whitespace (tabs, spaces, and newlines).</p>
+</section><section class="section3" id="bytes"><h3>Bytes<a class="headerlink" href="#bytes" title="Permanent link"></a></h3>
+<p>Within Java, if you need to store <strong>binary data</strong> as opposed to <strong>text</strong>, you&rsquo;d probably use <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/nio/ByteBuffer.html" title="ByteBuffer (Java SE 16 &amp; JDK 16)"><code>ByteBuffer</code></a>, which gives you mutable objects. Within Python, <a href="https://docs.python.org/3/library/stdtypes.html#bytearray-objects" title="Built-in Types — Python 3 documentation: Bytearray Objects"><code>bytearray</code></a> objects provide similar functionality.</p>
+<p>Unlike Java, Python also offers a <a href="https://realpython.com/python-strings/#bytes-objects" title="Strings and Character Data in Python – Real Python: bytes Objects"><code>bytes</code></a> type to store immutable binary data. Bytes literals look very similar to string literals, except you prefix the literal with a <code>b</code>. Strings contain an <code>.encode()</code> method to convert them to a sequence of bytes, and a <code>bytes</code> object contains a <code>.decode()</code> method to convert it to a string:</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="nb">bytes</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>                     <span class="c1"># Zero-filled with a specified length</span>
+<span class="go">b&#39;\x00\x00\x00\x00&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">bytes</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>              <span class="c1"># From an iterable of integers</span>
+<span class="go">b&#39;\x00\x01\x02\x03&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="s2">&quot;Attaché case&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>  <span class="c1"># Many different codecs are available</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
+<span class="go">b&#39;Attach\xc3\xa9 case&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>                   <span class="c1"># Decode back into a string again</span>
+<span class="go">&#39;Attaché case&#39;</span>
+</code></pre></div>
+<p>If the codec isn&rsquo;t specified, the default UTF-8 codec is used for encoding strings and for decoding bytes. When you need to, you can choose from a large <a href="https://docs.python.org/3/library/codecs.html#standard-encodings" title="codecs — Codec registry and base classes — Python 3 documentation: Standard Encodings">list of codecs</a> that provide all sorts of text and bytes conversions.</p>
+<p>Python <code>bytes</code> objects also have a <code>.hex()</code> method that produces a string that will list the contents as hexadecimal. For the reverse operation, you can use the <code>.fromhex()</code> <a href="https://realpython.com/instance-class-and-static-methods-demystified/#class-methods" title="Python's Instance, Class, and Static Methods Demystified – Real Python: Class Methods">class method</a> to construct a <code>bytes</code> object from a hexadecimal string representation.</p>
+<div><div class="rounded border border-light" style="display:block;position:relative;"><div style="display:block;width:100%;padding-top:12.5%;"></div><div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div></div><a class="small text-muted" href="/account/join/" rel="nofollow"><i aria-hidden="true" class="fa fa-info-circle mr-1"></i>Remove ads</a></div></section><section class="section3" id="booleans"><h3>Booleans<a class="headerlink" href="#booleans" title="Permanent link"></a></h3>
+<p><code>False</code> and <code>True</code> are the two <code>bool</code> instance objects in Python. In a <a href="https://docs.python.org/3/library/stdtypes.html#typesnumeric" title="Built-in Types — Python 3 documentation: Numeric Types">numeric context</a>, <code>True</code> evaluates to <code>1</code> and <code>False</code> to <code>0</code>. This means that <code>True + True</code> evaluates to <code>2</code>.</p>
+<p>The Boolean logical operators in Python are different from Java&rsquo;s <code>&amp;&amp;</code>, <code>||</code>, and <code>!</code> operators. In Python, these are the reserved keywords <code>and</code>, <code>or</code>, and <code>not</code>.</p>
+<p>You see this summarized in the table below:</p>
+<div class="table-responsive">
+<table class="table table-hover">
+<thead>
+<tr>
+<th>Java</th>
+<th>Python</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>a &amp;&amp; b</code></td>
+<td><code>a and b</code></td>
+<td>logical and</td>
+</tr>
+<tr>
+<td><code>a || b</code></td>
+<td><code>a or b</code></td>
+<td>logical or</td>
+</tr>
+<tr>
+<td><code>!a</code></td>
+<td><code>not a</code></td>
+<td>logical not</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Similar to Java, there&rsquo;s a short-circuiting evaluation behavior of the Boolean operators <code>and</code> and <code>or</code>, where the Python interpreter lazily evaluates the operands left to right until it can determine the truthiness of the whole expression.</p>
+<p>Another similarity to Java is that the interpreter yields the <em>last evaluated</em> subexpression as the outcome. Consequently, you should be aware that the outcome of an <code>and</code> or <code>or</code> expression does not necessarily yield a <code>bool</code> instance object.</p>
+<p>All Python objects either have a <strong>falsy</strong> or <strong>truthy</strong> value. In other words, when you convert Python objects to <code>bool</code>, the outcome is clearly defined:</p>
+<ul>
+<li><strong>Numerical values that are equal to <code>0</code></strong> convert to <code>False</code>, and <code>True</code> otherwise.</li>
+<li><strong>Empty containers</strong>, <strong>collections</strong>, <strong>strings</strong>, and <strong>bytes objects</strong> convert to <code>False</code>, and <code>True</code> otherwise.</li>
+<li><strong>The <code>None</code> object</strong> converts to <code>False</code> as well.</li>
+<li><strong>All other objects</strong> evaluate to <code>True</code>.</li>
+</ul>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> User-defined classes can provide a <code>.__bool__()</code> dunder method to define the truthiness of their class instances.</p>
+</div>
+<p>If you want to test whether a <a href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Container" title="collections.abc — Abstract Base Classes for Containers — Python 3 documentation: class collections.abc.Container">container</a> or string is non-empty, then you simply provide that object in a Boolean context. This is regarded to be a <a href="https://docs.python.org/3/glossary.html#term-pythonic" title="Glossary — Python 3 documentation: Pythonic">Pythonic</a> approach.</p>
+<p>Check out the following different ways to check for a non-empty string:</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;some string&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">s</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>                 <span class="c1"># Comparing two strings</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;s != &quot;&quot;&#39;</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">s != &quot;&quot;</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>             <span class="c1"># Asking for the string length</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;len(s) != 0&quot;</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">len(s) != 0</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>                  <span class="c1"># Close, but no cigar</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;len(s)&quot;</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">len(s)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">s</span><span class="p">:</span>                       <span class="c1"># Pythonic code!</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">s</span>
+</code></pre></div>
+<p>In the last example, you just provide the string in a Boolean context. If the string isn&rsquo;t empty, then it evaluates to true.</p>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> The above doesn&rsquo;t mean to imply that it&rsquo;s Pythonic to rely on the implicit <code>bool</code> conversion for all kinds of types. The section below on <a href="#none"><code>None</code></a> addresses this in more detail.</p>
+</div>
+<p>You can follow the <a href="https://realpython.com/learning-paths/writing-pythonic-code/" title="Write More Pythonic Code (Learning Path) – Real Python">Write More Pythonic Code</a> learning path if you want to know more about the most typical Python constructs.</p>
+<p>In Python, you code the <a href="https://realpython.com/python-conditional-statements/#conditional-expressions-pythons-ternary-operator" title="Conditional Statements in Python – Real Python: Conditional Expression (Python's Ternary Operator)">conditional expression</a>, written in Java with the <a href="https://docs.oracle.com/javase/specs/jls/se16/html/jls-6.html#jls-6.3.1.4" title="Chapter 6. Names: Conditional operator ? :">conditional operator (<code>? :</code>)</a>, as an expression with the keywords <code>if</code> and <code>else</code>:</p>
+<div class="table-responsive">
+<table class="table table-hover">
+<thead>
+<tr>
+<th>Java</th>
+<th>Python</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cond ? a : b</code></td>
+<td><code>a if cond else b</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Consider an example of this type of expression in Python:</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">word</span> <span class="o">=</span> <span class="s2">&quot;item&quot;</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">&quot;items&quot;</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Amount: </span><span class="si">{</span><span class="n">n</span><span class="si">:</span><span class="s2">d</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">Amount: 0 items</span>
+<span class="go">Amount: 1 item</span>
+<span class="go">Amount: 2 items</span>
+</code></pre></div>
+<p>The REPL outputs <code>"item"</code> only when <code>n</code> equals <code>1</code>. In all other cases, the REPL outputs <code>"items"</code>.</p>
+<div><div class="rounded border border-light" style="display:block;position:relative;"><div style="display:block;width:100%;padding-top:12.5%;"></div><div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div></div><a class="small text-muted" href="/account/join/" rel="nofollow"><i aria-hidden="true" class="fa fa-info-circle mr-1"></i>Remove ads</a></div></section><section class="section3" id="none"><h3>None<a class="headerlink" href="#none" title="Permanent link"></a></h3>
+<p>In Python, <code>None</code> is a singleton object that you can use to identify <a href="https://realpython.com/null-in-python/" title="Null in Python: Understanding Python's NoneType Object – Real Python">null-like values</a>. In Java, you&rsquo;d use the literal <a href="https://docs.oracle.com/javase/specs/jls/se16/html/jls-3.html#jls-3.10.8" title="Chapter 3. Lexical Structure: 3.10.8. The Null Literal"><code>null</code></a> for similar purposes.</p>
+<p>The most frequent use of <code>None</code> within Python is as a default parameter value within function or method definitions. Furthermore, functions or methods that don&rsquo;t return any value actually return the <code>None</code> object implicitly.</p>
+<p>In general, it&rsquo;s regarded as a <a href="https://en.wikipedia.org/wiki/Code_smell" title="Code smell - Wikipedia">code smell</a> when you rely on the implicit conversion of <code>None</code> in a Boolean context because of the risk that you&rsquo;ll code unintentional behavior for other kinds of objects that happen to return a falsy value.</p>
+<p>Consequently, if you want to test whether an object really is the <code>None</code> object, then you should do that explicitly. Because there&rsquo;s only one <code>None</code> object, you can do that by using the object identity operator <code>is</code> or the opposite operator <code>is not</code>:</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">some_value</span> <span class="o">=</span> <span class="s2">&quot;All&quot;</span> <span class="ow">or</span> <span class="kc">None</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">some_value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;is None: </span><span class="si">{</span><span class="n">some_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">some_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;is not None: </span><span class="si">{</span><span class="n">some_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">is not None: All</span>
+</code></pre></div>
+<p>Keep in mind that the word <code>not</code> here is an inseparable part of the <code>is not</code> operator, and it notably isn&rsquo;t the same as the logical <code>not</code> operator. In this example, the string <code>"All"</code> has a truthy value in a Boolean context. You may also recollect that the <code>or</code> operator has this short-circuiting behavior and just returns the last expression as soon as the outcome is known, which is <code>"All"</code> in this case.</p>
+</section><section class="section3" id="more-container-data-types"><h3>More Container Data Types<a class="headerlink" href="#more-container-data-types" title="Permanent link"></a></h3>
+<p>Java offers its standard container types through its <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/doc-files/coll-overview.html" title="Collections Framework Overview (Java SE 16 &amp; JDK 16)">collections framework</a>.</p>
+<p>Python takes a different approach. It offers the basic container types that you&rsquo;ve explored earlier in this section as built-in types, and then Python&rsquo;s standard library provides some more container data types through the <a href="https://realpython.com/python-collections-module/" title="Python's collections: A Buffet of Specialized Data Types – Real Python"><code>collections</code> module</a>. There are many useful examples of container types that you can access through the <code>collections</code> module:</p>
+<ul>
+<li><a href="https://realpython.com/python-namedtuple/" title="Write Pythonic and Clean Code With namedtuple – Real Python"><code>namedtuple</code></a> provides tuples where you can also access the elements through field names.</li>
+<li><a href="https://docs.python.org/3/library/collections.html#collections.deque" title="collections — Container datatypes — Python 3 documentation: class collections.deque"><code>deque</code></a> provides double-ended queues with fast append and removal at both ends of the collection.</li>
+<li><a href="https://docs.python.org/3/library/collections.html#collections.ChainMap" title="collections — Container datatypes — Python 3 documentation: class collections.ChainMap"><code>ChainMap</code></a> lets you fold multiple mapping objects into a single view on the mapping.</li>
+<li><a href="https://realpython.com/python-counter/" title="Python's Counter: The Pythonic Way to Count Objects – Real Python"><code>Counter</code></a> provides a mapping for counting hashable objects.</li>
+<li><a href="https://realpython.com/python-defaultdict/" title="Using the Python defaultdict Type for Handling Missing Keys – Real Python"><code>defaultdict</code></a> provides a mapping that calls a factory function to supply missing values.</li>
+</ul>
+<p>These data container types have been implemented just in plain Python.</p>
+<p>At this point, you have a good foundation for understanding the similarities and differences between the features, syntax, and data types of Java vs Python. Now it&rsquo;s time to take a step back and explore the available Python libraries and frameworks and find out how suitable they are for specific use cases.</p>
+</section></section><section class="section2" id="what-resources-are-there-for-specific-usages"><h2>What Resources Are There for Specific Usages?<a class="headerlink" href="#what-resources-are-there-for-specific-usages" title="Permanent link"></a></h2>
+<p>You can use Python in many areas of use. Below you&rsquo;ll find some of these areas, together with their most useful and popular related Python libraries or frameworks:</p>
+<ul>
+<li><strong>Command-line scripts:</strong> <a href="https://docs.python.org/3/library/argparse.html" title="argparse — Parser for command-line options, arguments and sub-commands — Python 3 documentation"><code>argparse</code></a> provides functionality to create a command-line argument parser.</li>
+<li><strong>Web frameworks:</strong><ul>
+<li><a href="https://www.djangoproject.com/" title="The Web framework for perfectionists with deadlines | Django">Django</a> offers a bit more of a shrink-wrapped approach when it comes to developing complete and potentially complex websites. It includes the ability to define models, offers its own ORM solution, and provides a full admin functionality. You can add additional plugins to further extend the admin.</li>
+<li><a href="https://flask.palletsprojects.com/" title="Welcome to Flask — Flask Documentation">Flask</a> advertises itself as a microframework that concentrates on doing one thing well, which is serving web requests. You can combine this core functionality with other already existing components of your own choice, such as ORM and form validation. Many extensions, known as Flask plugins, are available to nicely integrate those components for you.</li>
+<li><a href="https://requests.readthedocs.io/en/master/" title="Requests: HTTP for Humans™ — Requests 2.x.x documentation">Requests</a> makes sending HTTP requests extremely convenient.</li>
+</ul>
+</li>
+<li><strong>Data modeling and analysis:</strong> <a href="https://pandas.pydata.org/" title="pandas - Python Data Analysis Library">pandas</a>, which is based on <a href="https://numpy.org/" title="NumPy">NumPy</a>, is a fast, powerful, flexible, and straightforward open source data analysis and manipulation tool. Some people have called pandas a &ldquo;programmable spreadsheet on steroids.&rdquo;</li>
+<li><strong>Machine learning:</strong> <a href="https://www.tensorflow.org/" title="TensorFlow">TensorFlow</a>, <a href="https://keras.io/" title="Keras: the Python deep learning API">Keras</a>, and <a href="https://pytorch.org/" title="PyTorch">PyTorch</a> are a few popular frameworks in the area of machine learning.</li>
+<li><strong>SQL toolkits and object-relational mappers (ORM):</strong> <a href="https://www.sqlalchemy.org/" title="SQLAlchemy - The Database Toolkit for Python">SQLAlchemy</a> is a very popular Python SQL toolkit and ORM framework.</li>
+<li><strong>Workload distribution:</strong> <a href="https://docs.celeryproject.org/en/stable/" title="Celery - Distributed Task Queue — Celery 4.x.x documentation">Celery</a> is a distributed task queue system.</li>
+</ul>
+<p>Python also has some noteworthy tools related to <strong>quality assurance</strong>:</p>
+<ul>
+<li><a href="https://docs.pytest.org/en/stable/" title="pytest: helps you write better programs — pytest documentation">pytest</a> is a great alternative for the standard <a href="https://docs.python.org/3/library/unittest.html" title="unittest — Unit testing framework — Python 3 documentation"><code>unittest</code></a> library.</li>
+<li><a href="https://behave.readthedocs.io/en/latest/index.html" title="Welcome to behave! — behave 1.x.x documentation">behave</a> is a popular <a href="https://en.wikipedia.org/wiki/Behavior-driven_development" title="Behavior-driven development – Wikipedia">behavior-driven development (BDD)</a> tool. You can combine it with <a href="https://github.com/hamcrest/PyHamcrest" title="hamcrest/PyHamcrest: Hamcrest matchers for Python">PyHamcrest</a> for more expressive assert checks.</li>
+<li><a href="https://flake8.pycqa.org/en/latest/" title="Flake8: Your Tool For Style Guide Enforcement — flake8 3.x.x documentation">Flake8</a> is a coding style guide checker.</li>
+<li><a href="https://www.pylint.org/" title="Pylint - code analysis for Python | www.pylint.org">Pylint</a> is a tool that checks for errors in Python code and identifies code smells and coding standard deviations.</li>
+<li><a href="https://black.readthedocs.io/en/stable/index.html" title="The uncompromising code formatter — Black 21.5b1 documentation">Black</a> is the uncompromising, opinionated, hardly-configurable code reformatter. Although this may sound terrible, in real life, it&rsquo;s a great tool for any larger-scale software project.</li>
+<li><a href="http://mypy-lang.org/" title="mypy - Optional Static Typing for Python">mypy</a> is the most widely used static type checker.</li>
+<li><a href="https://bandit.readthedocs.io/en/latest/" title="Welcome to Bandit's developer documentation! — Bandit documentation">Bandit</a> finds common security issues.</li>
+<li><a href="https://github.com/pyupio/safety" title="pyupio/safety: Safety checks your installed dependencies for known security vulnerabilities">Safety</a> checks your installed dependencies for known security vulnerabilities.</li>
+<li><a href="https://tox.readthedocs.io/en/latest/" title="Welcome to the tox automation project — tox 3.x.x documentation">tox</a> is a command-line tool that helps in running the automated tests and QA tool checks defined for your project in one single command and for multiple Python versions and dependency configurations.</li>
+</ul>
+<p>The lists above are only a small selection of the many packages and frameworks available. You can browse and search the Python Package Index (PyPI) to find just that special package you&rsquo;re looking for.</p>
+</section><section class="section2" id="when-would-python-be-more-useful-than-java-and-why"><h2>When Would Python Be More Useful Than Java, and Why?<a class="headerlink" href="#when-would-python-be-more-useful-than-java-and-why" title="Permanent link"></a></h2>
+<p>Often, you want to choose a programming language for one use case and a different programming language for another use case. When comparing Java vs Python, you should take the following aspects into consideration:</p>
+<ul>
+<li>Both Java and Python are successfully used in the world&rsquo;s largest web applications.</li>
+<li>You can also use Python for writing shell tools.</li>
+<li>Python&rsquo;s elegant syntax, code readability, extensive library, and vast collection of external packages allow for rapid development. You&rsquo;d probably need less than half of the number of lines of code to achieve the same functionality as you would in Java.</li>
+<li>Because standard Python requires no compile or link steps, you see immediate results when you update the code. This further speeds up development cycle times.</li>
+<li>In most cases for general applications, standard Java execution speed is higher than Python&rsquo;s.</li>
+<li>You can <a href="https://realpython.com/build-python-c-extension-module/" title="Building a Python C Extension Module – Real Python">extend</a> Python with C or C++ with relatively little effort. To a certain extent, this mitigates the differences in execution speed.</li>
+</ul>
+<p>For certain usages, such as data modeling, analytics, machine learning, and artificial intelligence, execution speed really matters. The popular third-party packages created for this functionality are defined in a programming language that&rsquo;s compiled to native code. For these areas, Python seems to be the most logical choice.</p>
+</section><section class="section2" id="conclusion"><h2>Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h2>
+<p>In this tutorial, you got acquainted with Python and you got a clear picture of the properties of this programming language. You&rsquo;ve explored the similarities and differences between Java and Python.</p>
+<p>You now have some experience for quickly getting started with Python. You also have a good foundation for understanding which situations and for which problem domains it&rsquo;s useful to apply Python, as well as an overview of what helpful resources you can look to next.</p>
+<p><strong>In this tutorial, you learned about:</strong></p>
+<ul>
+<li>The <strong>syntax</strong> of the Python programming language</li>
+<li>Quite a few standard <strong>data types</strong> in Python</li>
+<li>How Python is <strong>different</strong> from Java</li>
+<li>What aspects are <strong>similar</strong> between Java and Python</li>
+<li>Where you can look for Python <strong>documentation</strong> and <strong>topic-specific tutorials</strong></li>
+<li>How you can <strong>get started</strong> with Python</li>
+<li>How you can see <strong>immediate results</strong> by using the Python REPL</li>
+<li>Some <strong>favorite frameworks</strong> and <strong>libraries</strong></li>
+</ul>
+<p>Maybe you&rsquo;re sure that you&rsquo;ll be working more with Python in the future, or maybe you&rsquo;re still deciding whether to dig deeper into the language. Either way, with the information summarized above, you&rsquo;re well equipped to explore Python and some of the frameworks introduced in this tutorial.</p>
+</section><section class="section2" id="additional-resources"><h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Permanent link"></a></h2>
+<p>When you&rsquo;re ready to learn more about Python and its packages, there&rsquo;s a large collection of resources available on the web:</p>
+<ul>
+<li>You can find <a href="https://realpython.com/tutorials/all/" title="All Python Tutorial Topics – Real Python">written tutorials</a>, <a href="https://realpython.com/courses/" title="Python Video Courses – Real Python">video courses</a>, <a href="https://realpython.com/quizzes/" title="Python Quizzes – Real Python">quizzes</a>, and <a href="https://realpython.com/learning-paths/" title="Python Learning Paths – Real Python">learning paths</a> that cover many topics on <a href="https://realpython.com/" title="Real Python"><em>Real Python</em></a>.</li>
+<li>The external Python utilities, libraries, and frameworks usually provide good documentation.</li>
+<li><a href="https://pyvideo.org/" title="PyVideo.org">PyVideo.org</a> provides a huge indexed collection of freely available presentations from Python-related conferences all over the world.</li>
+<li>And last but certainly not least, the official <a href="https://docs.python.org/3/" title="Python 3 Documentation">Python documentation</a> maintains a high standard of accurate and complete information for everything about the Python programming language, its standard library, and its ecosystem.</li>
+</ul>
+<p>Now that you&rsquo;ve gotten an idea of what kind of programming language Python actually is, you&rsquo;re hopefully getting enthusiastic about it and thinking about picking it up for your next project, be it small or large. Happy Pythoning!</p>
+</section>
+
+    
+      
+      <div class="text-center my-3">
+        <div class="jsCompletionStatusWidget btn-group mb-0">
+  <button title="Click to mark as completed" class="jsBtnCompletion btn btn-secondary border-right " style="border-top-right-radius: 0; border-bottom-right-radius: 0;" disabled>Mark as Completed</button>
+  <button title="Add bookmark" class="jsBtnBookmark btn btn-secondary border-left" disabled><i class="fa fa-fw fa-bookmark-o"></i></button>
+</div>
+
+        <span class="ml-2"><div class="btn-group mb-0">
+  <a class="btn btn-secondary border-right px-3" style="border-top-right-radius: 0; border-bottom-right-radius: 0;" title="Liked it" aria-label="Thumbs up (liked it)" href="/feedback/survey/article/java-vs-python/liked/?from=article-footer" target="_blank"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>
+  <a class="btn btn-secondary border-left px-3" aria-label="Thumbs down (disliked it)" title="Disliked it" href="/feedback/survey/article/java-vs-python/disliked/?from=article-footer" target="_blank"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></a>
+</div>
+</span>
+      </div>
+    
+
+    
+  </div>
+
+  
+    
+
+<div class="card mt-4 mb-4 bg-secondary">
+  <p class="card-header h3 text-center bg-light">🐍 Python Tricks 💌</p>
+  <div class="card-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-7">
+          <p>Get a short &amp; sweet <strong>Python Trick</strong> delivered to your inbox every couple of days. No spam ever. Unsubscribe any time. Curated by the Real Python team.</p>
+        </div>
+        <div class="col-xs-12 col-sm-5">
+          <img class="img-fluid rounded mb-3" src="https://cdn.realpython.com/static/pytrick-dict-merge.4201a0125a5e.png" width="738" height="490" alt="Python Tricks Dictionary Merge">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <form class="col-12" action="/optins/process/" method="post">
+          <input type="hidden" name="csrfmiddlewaretoken" value="tAJYValU8PhXbwzmhfQlfxo56a9jTU7pE2ltUbeg9qmR9pgJNG9kJIyCeMRGgx2f">
+          <input type="hidden" name="slug" value="static-python-tricks-footer">
+          <div class="form-group">
+            <input name="email" type="email" class="form-control form-control-lg" placeholder="Email Address" required>
+          </div>
+          <button name="submit" type="submit" class="btn btn-primary btn-lg btn-block">Send Me Python Tricks »</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+
+  
+
+
+
+<div class="card mt-3" id="author">
+  <p class="card-header h3">About <strong>Jan-Hein Bührman</strong></p>
+  <div class="card-body">
+    <div class="container p-0">
+      <div class="row">
+        <div class="col-12 col-md-3 align-self-center">
+          <a href="/team/jhbuhrman/"><img loading="lazy" src="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Jan-Hein_helderder.fc6f7be8af44.jpg&amp;w=200&amp;h=200&amp;mode=crop&amp;sig=b228d7f49ee6f2b5aea20daf521ae4777812882d" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Jan-Hein_helderder.fc6f7be8af44.jpg&amp;w=50&amp;h=50&amp;mode=crop&amp;sig=10aee1b3d439ffe6e0fd6f24cd1851ccab9c3f66 50w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Jan-Hein_helderder.fc6f7be8af44.jpg&amp;w=100&amp;h=100&amp;mode=crop&amp;sig=2ec64bf434a9d51eff9f4e9d2efce4dc81c1095e 100w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Jan-Hein_helderder.fc6f7be8af44.jpg&amp;w=200&amp;h=200&amp;mode=crop&amp;sig=b228d7f49ee6f2b5aea20daf521ae4777812882d 200w" sizes="25vw" width="200" height="200" class="d-block d-md-none rounded-circle img-fluid w-33 mb-0 mx-auto" alt="Jan-Hein Bührman"></a>
+          <a href="/team/jhbuhrman/"><img loading="lazy" src="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Jan-Hein_helderder.fc6f7be8af44.jpg&amp;w=200&amp;h=200&amp;mode=crop&amp;sig=b228d7f49ee6f2b5aea20daf521ae4777812882d" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Jan-Hein_helderder.fc6f7be8af44.jpg&amp;w=50&amp;h=50&amp;mode=crop&amp;sig=10aee1b3d439ffe6e0fd6f24cd1851ccab9c3f66 50w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Jan-Hein_helderder.fc6f7be8af44.jpg&amp;w=100&amp;h=100&amp;mode=crop&amp;sig=2ec64bf434a9d51eff9f4e9d2efce4dc81c1095e 100w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Jan-Hein_helderder.fc6f7be8af44.jpg&amp;w=200&amp;h=200&amp;mode=crop&amp;sig=b228d7f49ee6f2b5aea20daf521ae4777812882d 200w" sizes="25vw" width="200" height="200" class="d-none d-md-block rounded-circle img-fluid w-100 mb-0" alt="Jan-Hein Bührman"></a>
+        </div>
+        <div class="col mt-3">
+          <p>Jan-Hein is a software developer who witnessed Python&#x27;s first baby steps up very close. While working in different software development roles, he always kept an eye on Python&#x27;s development. He&#x27;s now back at the work he loves most: Python programming!</p>
+          <a href="/team/jhbuhrman/" class="card-link">» More about Jan-Hein</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <hr class="my-0">
+  <div class="card-body pb-0">
+    <div class="container">
+      <div class="row">
+        <p><em>Each tutorial at Real Python is created by a team of developers so that it meets our high quality standards. The team members who worked on this tutorial are:</em></p>
+      </div>
+
+      
+        
+          <div class="row align-items-center w-100 mx-auto">
+        
+
+        <div class="col-4 col-sm-2 align-self-center">
+          
+            <a href="/team/asantos/"><img loading="lazy" src="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/PP.9b8b026f75b8.jpg&amp;w=959&amp;h=959&amp;mode=crop&amp;sig=70bedc2eab90a227eb9a657c415689c3eb1eca4f" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/PP.9b8b026f75b8.jpg&amp;w=239&amp;h=239&amp;mode=crop&amp;sig=11667a6dd5c29e4c9363f18be59360551af5eddc 239w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/PP.9b8b026f75b8.jpg&amp;w=479&amp;h=479&amp;mode=crop&amp;sig=1541e1ec541357813def826d8507c0565164b701 479w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/PP.9b8b026f75b8.jpg&amp;w=959&amp;h=959&amp;mode=crop&amp;sig=70bedc2eab90a227eb9a657c415689c3eb1eca4f 959w" sizes="10vw" width="200" height="200" class="rounded-circle img-fluid w-100" alt="Aldren Santos"></a>
+          
+        </div>
+        <div class="col pl-0 d-none d-sm-block">
+          <a href="/team/asantos/" class="card-link small"><p>Aldren</p></a>
+        </div>
+
+        
+
+        
+      
+        
+
+        <div class="col-4 col-sm-2 align-self-center">
+          
+            <a href="/team/bzaczynski/"><img loading="lazy" src="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/profile-picture.9b78351e1462.jpg&amp;w=900&amp;h=900&amp;mode=crop&amp;sig=84695876e8b66be5e91aa5eb72f25a3fb4dcceeb" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/profile-picture.9b78351e1462.jpg&amp;w=225&amp;h=225&amp;mode=crop&amp;sig=8e1a0d84149944be3c2615404fb46e7da001c17f 225w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/profile-picture.9b78351e1462.jpg&amp;w=450&amp;h=450&amp;mode=crop&amp;sig=2e7c93ebefa8a958432160f29cd4a09c889ae8d3 450w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/profile-picture.9b78351e1462.jpg&amp;w=900&amp;h=900&amp;mode=crop&amp;sig=84695876e8b66be5e91aa5eb72f25a3fb4dcceeb 900w" sizes="10vw" width="200" height="200" class="rounded-circle img-fluid w-100" alt="Bartosz Zaczyński"></a>
+          
+        </div>
+        <div class="col pl-0 d-none d-sm-block">
+          <a href="/team/bzaczynski/" class="card-link small"><p>Bartosz</p></a>
+        </div>
+
+        
+
+        
+      
+        
+
+        <div class="col-4 col-sm-2 align-self-center">
+          
+            <a href="/team/gahjelle/"><img loading="lazy" src="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/gahjelle.470149ee709e.jpg&amp;w=800&amp;h=800&amp;mode=crop&amp;sig=e9b761c6cf1359953014dba05554f5424eb116e1" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/gahjelle.470149ee709e.jpg&amp;w=200&amp;h=200&amp;mode=crop&amp;sig=c6390201e73d3e09429d73da5bb29c17ab10403a 200w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/gahjelle.470149ee709e.jpg&amp;w=400&amp;h=400&amp;mode=crop&amp;sig=fcea459ee24a7b320573cadee324cf75509dc1d6 400w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/gahjelle.470149ee709e.jpg&amp;w=800&amp;h=800&amp;mode=crop&amp;sig=e9b761c6cf1359953014dba05554f5424eb116e1 800w" sizes="10vw" width="200" height="200" class="rounded-circle img-fluid w-100" alt="Geir Arne Hjelle"></a>
+          
+        </div>
+        <div class="col pl-0 d-none d-sm-block">
+          <a href="/team/gahjelle/" class="card-link small"><p>Geir Arne</p></a>
+        </div>
+
+        
+
+        
+          </div>
+        
+      
+        
+          <div class="row align-items-center w-100 mx-auto">
+        
+
+        <div class="col-4 col-sm-2 align-self-center">
+          
+            <a href="/team/sparker/"><img loading="lazy" src="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/profpic_sp.a008488b6af0.jpeg&amp;w=800&amp;h=800&amp;mode=crop&amp;sig=ec9f8b060e53c9b35339584491f286fd52c11452" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/profpic_sp.a008488b6af0.jpeg&amp;w=200&amp;h=200&amp;mode=crop&amp;sig=ce5407d34a490d4daf29ad57e74fd3870dd28774 200w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/profpic_sp.a008488b6af0.jpeg&amp;w=400&amp;h=400&amp;mode=crop&amp;sig=dfd70d0dde444f036864e5cc145df9b18fbae649 400w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/profpic_sp.a008488b6af0.jpeg&amp;w=800&amp;h=800&amp;mode=crop&amp;sig=ec9f8b060e53c9b35339584491f286fd52c11452 800w" sizes="10vw" width="200" height="200" class="rounded-circle img-fluid w-100" alt="Sadie Parker"></a>
+          
+        </div>
+        <div class="col pl-0 d-none d-sm-block">
+          <a href="/team/sparker/" class="card-link small"><p>Sadie</p></a>
+        </div>
+
+        
+          
+          
+            <div class="col-4 col-sm-2 align-self-center"></div>
+            <div class="col pl-0 d-none d-sm-block"></div>
+            <div class="col-4 col-sm-2 align-self-center"></div>
+            <div class="col pl-0 d-none d-sm-block"></div>
+          
+        
+
+        
+          </div>
+        
+      
+    </div>
+  </div>
+  
+
+</div>
+
+
+
+
+
+  
+    
+
+<div class="bg-light rounded py-4 my-4 shadow shadow-sm mx-n2">
+  
+  <div class="col-12 text-center d-block d-md-none">
+    <p class="h2 mb-3">Master <u><span class="marker-highlight">Real-World Python Skills</mark></u> With Unlimited Access to Real&nbsp;Python</p>
+    <p class="mb-1"><img class="w-75" src="https://cdn.realpython.com/static/videos/lesson-locked.f5105cfd26db.svg" width="510" height="260"></p>
+    <p class="mx-auto w-75 mb-3 small"><strong>Join us and get access to thousands of tutorials, hands-on video courses, and a community of expert&nbsp;Pythonistas:</strong></p>
+    <p class="mb-0"><a href="/account/join/?utm_source=rp_article_footer&utm_content=java-vs-python" class="btn btn-primary btn-sm px-4 mb-0">Level Up Your Python Skills »</a>
+  </div>
+
+  
+  <div class="col-12 text-center d-none d-md-block">
+    <p class="h2 mb-2">Master <u><span class="marker-highlight">Real-World Python Skills</span></u><br>With Unlimited Access to Real&nbsp;Python</p>
+    <p class="mb-2"><img class="w-50 mb-2" src="https://cdn.realpython.com/static/videos/lesson-locked.f5105cfd26db.svg" width="510" height="260"></p>
+    <p class="mx-auto w-50 mb-3"><strong>Join us and get access to thousands of tutorials, hands-on video courses, and a community of expert Pythonistas:</strong></p>
+    <p><a href="/account/join/?utm_source=rp_article_footer&utm_content=java-vs-python" class="btn btn-primary btn-lg px-4">Level Up Your Python Skills »</a>
+  </div>
+</div>
+
+  
+
+  
+  <div class="card mt-4" id="reader-comments">
+    <p class="card-header h3">What Do You Think?</p>
+    
+    <div class="text-center mt-3 mb-0 p-0">
+      <div class="mb-2">
+        <strong class="mr-2">Rate this article:</strong>
+        <div class="btn-group mb-0">
+  <a class="btn btn-secondary border-right px-3" style="border-top-right-radius: 0; border-bottom-right-radius: 0;" title="Liked it" aria-label="Thumbs up (liked it)" href="/feedback/survey/article/java-vs-python/liked/?from=article-comments" target="_blank"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>
+  <a class="btn btn-secondary border-left px-3" aria-label="Thumbs down (disliked it)" title="Disliked it" href="/feedback/survey/article/java-vs-python/disliked/?from=article-comments" target="_blank"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></a>
+</div>
+
+      </div>
+      
+<span>
+  <a target="_blank" rel="nofollow" href="https://twitter.com/intent/tweet/?text=Check out this %23Python tutorial: Java%20vs%20Python%3A%20Basic%20Python%20for%20Java%20Developers by @realpython&url=https%3A//realpython.com/java-vs-python/" class="mr-1 badge badge-twitter text-light mb-1"><i class="mr-1 fa fa-twitter text-light"></i>Tweet</a>
+  <a target="_blank" rel="nofollow" href="https://facebook.com/sharer/sharer.php?u=https%3A//realpython.com/java-vs-python/" class="mr-1 badge badge-facebook text-light mb-1"><i class="mr-1 fa fa-facebook text-light"></i>Share</a>
+  
+  <a target="_blank" rel="nofollow" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//realpython.com/java-vs-python/" class="mr-1 badge badge-linkedin text-light mb-1"><i class="mr-1 fa fa-linkedin text-light"></i>Share</a>
+  
+  <a target="_blank" rel="nofollow" href="mailto:?subject=Python article for you&body=Check out this Python tutorial:%0A%0AJava%20vs%20Python%3A%20Basic%20Python%20for%20Java%20Developers%0A%0Ahttps%3A//realpython.com/java-vs-python/" class="badge badge-red text-light mb-1"><i class="mr-1 fa fa-envelope text-light"></i>Email</a>
+</span>
+
+    </div>
+    
+    <div class="card-body">
+      <p>What’s your #1 takeaway or favorite thing you learned? How are you going to put your newfound skills to use? Leave a comment below and let us know.</p>
+
+      <div class="alert alert-dark">
+        <p class="mb-0"><strong>Commenting Tips:</strong> The most useful comments are those written with the goal of learning from or helping out other students. <a href="https://realpython.com/python-beginner-tips/#tip-9-ask-good-questions" target="_blank">Get tips for asking good questions</a> and <a href="https://support.realpython.com" target="_blank">get answers to common questions in our support portal</a>.<hr>Looking for a real-time conversation? Visit the <a href="/community/" target="_blank">Real Python Community Chat</a> or join the next <a href="/office-hours/" target="_blank">&ldquo;Office&nbsp;Hours&rdquo; Live Q&A Session</a>. Happy Pythoning!</p>
+
+      </div>
+
+      <div class="mb-4" id="disqus_thread">
+      
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="card mt-4 mb-4">
+    <p class="card-header h3">Keep Learning</p>
+    <div class="card-body">
+      <p class="mb-0">Related Tutorial Categories:
+      
+        <a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+      
+        <a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+      
+      </p>
+      
+    </div>
+  </div>
+
+  
+    
+
+<div class="modal fade" tabindex="-1" role="dialog" id="rprw">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header border-0">
+        <div class="col-12 col-lg-9 mx-auto modal-title text-center my-2">
+          <h2 class="my-0">Keep reading Real&nbsp;Python by creating a free account or signing&nbsp;in:</h2>
+        </div>
+      </div>
+
+      
+      <div class="modal-body bg-light">
+        <div class="col-12 text-center">
+
+          <div class="col-12 col-lg-8 mx-auto mb-2 mt-3">
+            <a href="/account/signup/?intent=continue_reading&utm_source=rp&utm_medium=web&utm_campaign=rwn&utm_content=v1&next=%2Fjava-vs-python%2F"><img class="w-100" src="https://cdn.realpython.com/static/videos/lesson-locked.f5105cfd26db.svg" alt="Keep reading"></a>
+          </div>
+
+          <p><a href="/account/signup/?intent=continue_reading&utm_source=rp&utm_medium=web&utm_campaign=rwn&utm_content=v1&next=%2Fjava-vs-python%2F" class="btn btn-primary btn-lg px-5"></i>Continue »</a></p>
+
+        </div>
+      </div>
+      
+
+      <div class="modal-footer border-0">
+        <p class="text-center text-muted mt-2 mb-1">Already have an account? <a href="/account/login/?next=/java-vs-python/">Sign-In</a></p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+    <script src="https://cdn.realpython.com/static/frontend/reader/rw.38bf29157dfe.js" async></script>
+  
+
+
+    </div>
+
+    <aside class="col-md-7 col-lg-4">
+      
+  
+
+
+
+<div class="card mb-3 bg-secondary">
+  <form class="card-body" action="/optins/process/" method="post">
+    <div class="form-group">
+      <p class="h5 text-muted text-center">— FREE Email Series —</p>
+      <p class="h3 text-center">🐍 Python Tricks 💌</p>
+      <p><img class="img-fluid rounded" src="https://cdn.realpython.com/static/pytrick-dict-merge.4201a0125a5e.png" width="738" height="490" alt="Python Tricks Dictionary Merge"></p>
+    </div>
+    <div class="form-group">
+      <input type="hidden" name="csrfmiddlewaretoken" value="tAJYValU8PhXbwzmhfQlfxo56a9jTU7pE2ltUbeg9qmR9pgJNG9kJIyCeMRGgx2f">
+      <input type="hidden" name="slug" value="static-python-tricks-sidebar">
+      <input type="email" class="form-control form-control-md" name="email" placeholder="Email&hellip;" required>
+    </div>
+    <button type="submit" name="submit" class="btn btn-primary btn-md btn-block">Get Python Tricks »</button>
+    <p class="mb-0 mt-2 text-muted text-center">🔒 No spam. Unsubscribe any time.</p>
+  </form>
+</div>
+
+
+  
+
+
+<div class="sidebar-module sidebar-module-inset border">
+  <p class="h4"><a class="link-unstyled" href="/tutorials/all/">All Tutorial Topics</a></p>
+    
+      <a href="/tutorials/advanced/" class="badge badge-light text-muted">advanced</a> 
+    
+      <a href="/tutorials/api/" class="badge badge-light text-muted">api</a> 
+    
+      <a href="/tutorials/basics/" class="badge badge-light text-muted">basics</a> 
+    
+      <a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a> 
+    
+      <a href="/tutorials/community/" class="badge badge-light text-muted">community</a> 
+    
+      <a href="/tutorials/databases/" class="badge badge-light text-muted">databases</a> 
+    
+      <a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a> 
+    
+      <a href="/tutorials/devops/" class="badge badge-light text-muted">devops</a> 
+    
+      <a href="/tutorials/django/" class="badge badge-light text-muted">django</a> 
+    
+      <a href="/tutorials/docker/" class="badge badge-light text-muted">docker</a> 
+    
+      <a href="/tutorials/flask/" class="badge badge-light text-muted">flask</a> 
+    
+      <a href="/tutorials/front-end/" class="badge badge-light text-muted">front-end</a> 
+    
+      <a href="/tutorials/gamedev/" class="badge badge-light text-muted">gamedev</a> 
+    
+      <a href="/tutorials/gui/" class="badge badge-light text-muted">gui</a> 
+    
+      <a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a> 
+    
+      <a href="/tutorials/machine-learning/" class="badge badge-light text-muted">machine-learning</a> 
+    
+      <a href="/tutorials/projects/" class="badge badge-light text-muted">projects</a> 
+    
+      <a href="/tutorials/python/" class="badge badge-light text-muted">python</a> 
+    
+      <a href="/tutorials/testing/" class="badge badge-light text-muted">testing</a> 
+    
+      <a href="/tutorials/tools/" class="badge badge-light text-muted">tools</a> 
+    
+      <a href="/tutorials/web-dev/" class="badge badge-light text-muted">web-dev</a> 
+    
+      <a href="/tutorials/web-scraping/" class="badge badge-light text-muted">web-scraping</a> 
+    
+</div>
+
+
+
+  
+<div class="sidebar-module sidebar-module-inset p-0" style="overflow:hidden;">
+  
+<div style="display:block;position:relative;">
+  <div style="display:block;width:100%;padding-top:100%;"></div>
+  <div class="rpad" data-unit="1x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div>
+</div>
+
+
+</div>
+
+
+
+  <div class="sidebar-sticky ">
+    
+      <div class="bg-light sidebar-module sidebar-module-inset" id="sidebar-toc">
+        <p class="h4 text-muted"><a class="link-unstyled" href="#toc">Table of Contents</a></p>
+        <div class="toc">
+<ul>
+<li><a href="#where-does-python-come-from">Where Does Python Come From?</a></li>
+<li><a href="#what-is-the-philosophy-of-python">What Is the Philosophy of Python?</a><ul>
+<li><a href="#python-code-is-readable">Python Code Is Readable</a></li>
+<li><a href="#python-comes-with-batteries-included">Python Comes With Batteries Included</a></li>
+<li><a href="#python-promotes-code-reuse">Python Promotes Code Reuse</a></li>
+<li><a href="#python-is-easily-extensible">Python Is Easily Extensible</a></li>
+</ul>
+</li>
+<li><a href="#how-can-you-start-discovering-python">How Can You Start Discovering Python?</a><ul>
+<li><a href="#installing-python">Installing Python</a></li>
+<li><a href="#creating-a-sandbox-and-using-it">Creating a Sandbox and Using It</a></li>
+<li><a href="#choosing-an-editor-or-integrated-development-environment">Choosing an Editor or Integrated Development Environment</a></li>
+</ul>
+</li>
+<li><a href="#how-is-python-different-from-java">How Is Python Different From Java?</a><ul>
+<li><a href="#indentation-for-code-block-grouping">Indentation for Code Block Grouping</a></li>
+<li><a href="#a-read-eval-print-loop-from-the-beginning">A Read-Eval-Print Loop From the Beginning</a></li>
+<li><a href="#dynamically-typed-and-strongly-typed">Dynamically Typed and Strongly Typed</a></li>
+<li><a href="#cpython-vs-the-jit-compiler">CPython vs the JIT Compiler</a></li>
+<li><a href="#built-in-function-and-operator-overloading">Built-in Function and Operator Overloading</a></li>
+<li><a href="#nice-syntax-for-functional-processing-of-collections">Nice Syntax for Functional Processing of Collections</a></li>
+<li><a href="#everything-is-an-object">Everything Is an Object</a></li>
+</ul>
+</li>
+<li><a href="#what-aspects-of-java-and-python-are-similar">What Aspects of Java and Python Are Similar?</a><ul>
+<li><a href="#class-based-object-orientation">Class-Based Object Orientation</a></li>
+<li><a href="#operators">Operators</a></li>
+<li><a href="#string-formatting">String Formatting</a></li>
+<li><a href="#control-flow-constructs">Control Flow Constructs</a></li>
+</ul>
+</li>
+<li><a href="#java-vs-python-what-are-the-high-level-native-data-types">Java vs Python: What Are the High-Level Native Data Types?</a><ul>
+<li><a href="#numeric-types-and-their-operators">Numeric Types and Their Operators</a></li>
+<li><a href="#basic-sequence-types">Basic Sequence Types</a></li>
+<li><a href="#dictionaries">Dictionaries</a></li>
+<li><a href="#sets">Sets</a></li>
+<li><a href="#strings">Strings</a></li>
+<li><a href="#bytes">Bytes</a></li>
+<li><a href="#booleans">Booleans</a></li>
+<li><a href="#none">None</a></li>
+<li><a href="#more-container-data-types">More Container Data Types</a></li>
+</ul>
+</li>
+<li><a href="#what-resources-are-there-for-specific-usages">What Resources Are There for Specific Usages?</a></li>
+<li><a href="#when-would-python-be-more-useful-than-java-and-why">When Would Python Be More Useful Than Java, and Why?</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#additional-resources">Additional Resources</a></li>
+</ul>
+</div>
+
+      </div>
+    
+
+    <div class="sidebar-module sidebar-module-inset text-center my-3 py-0">
+      <div class="jsCompletionStatusWidget btn-group mb-0">
+  <button title="Click to mark as completed" class="jsBtnCompletion btn btn-secondary border-right " style="border-top-right-radius: 0; border-bottom-right-radius: 0;" disabled>Mark as Completed</button>
+  <button title="Add bookmark" class="jsBtnBookmark btn btn-secondary border-left" disabled><i class="fa fa-fw fa-bookmark-o"></i></button>
+</div>
+
+      <div class="my-2">
+        <div class="btn-group mb-0">
+  <a class="btn btn-secondary border-right px-3" style="border-top-right-radius: 0; border-bottom-right-radius: 0;" title="Liked it" aria-label="Thumbs up (liked it)" href="/feedback/survey/article/java-vs-python/liked/?from=article-sidebar" target="_blank"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>
+  <a class="btn btn-secondary border-left px-3" aria-label="Thumbs down (disliked it)" title="Disliked it" href="/feedback/survey/article/java-vs-python/disliked/?from=article-sidebar" target="_blank"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></a>
+</div>
+
+      </div>
+    </div>
+
+    
+      <div class="sidebar-module sidebar-module-inset text-center my-3 py-0">
+        
+<span>
+  <a target="_blank" rel="nofollow" href="https://twitter.com/intent/tweet/?text=Check out this %23Python tutorial: Java%20vs%20Python%3A%20Basic%20Python%20for%20Java%20Developers by @realpython&url=https%3A//realpython.com/java-vs-python/" class="mr-1 badge badge-twitter text-light mb-1"><i class="mr-1 fa fa-twitter text-light"></i>Tweet</a>
+  <a target="_blank" rel="nofollow" href="https://facebook.com/sharer/sharer.php?u=https%3A//realpython.com/java-vs-python/" class="mr-1 badge badge-facebook text-light mb-1"><i class="mr-1 fa fa-facebook text-light"></i>Share</a>
+  
+  <a target="_blank" rel="nofollow" href="mailto:?subject=Python article for you&body=Check out this Python tutorial:%0A%0AJava%20vs%20Python%3A%20Basic%20Python%20for%20Java%20Developers%0A%0Ahttps%3A//realpython.com/java-vs-python/" class="badge badge-red text-light mb-1"><i class="mr-1 fa fa-envelope text-light"></i>Email</a>
+</span>
+
+      </div>
+    
+
+    
+
+    
+      <div class="sidebar-module sidebar-module-inset p-0" style="overflow:hidden;">
+        
+<div style="display:block;position:relative;">
+  <div style="display:block;width:100%;padding-top:25%;"></div>
+  <div class="rpad" data-unit="4x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div>
+</div>
+
+
+      </div>
+    
+
+    
+  </div>
+
+
+    </aside>
+
+  </div>
+
+    </div>
+
+    
+    
+
+    
+    
+      
+        
+          <div class="modal fade" id="modal-python-cheat-sheet-shortened" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header bg-light pt-3 pb-2">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <div class="progress" style="height: .5rem;">
+                <div class="progress-bar progress-bar-striped progress-bar-animated w-75" role="progressbar"></div>
+              </div>
+            </div>
+            <div class="col-12">
+              <p class="text-muted text-center mb-0 mt-2">Almost there! Complete this form and click the button below to gain instant access:</p>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body m-4">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-12 col-lg-4 mb-4">
+              
+                <img class="img-fluid rounded" src="https://files.realpython.com/media/python-logo.8eb72ea6927b.png" width="1000" height="1000" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/python-logo.8eb72ea6927b.png&amp;w=250&amp;sig=3922247197a4a17add6954dd288123a4df30e55a 250w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/python-logo.8eb72ea6927b.png&amp;w=500&amp;sig=40c3b1b474ae94aec528188714ba5878a77362ea 500w, https://files.realpython.com/media/python-logo.8eb72ea6927b.png 1000w" sizes="50vw" alt="Python Logo">
+              
+            </div>
+            <div class="col">
+              <p class="text-center h3 mb-4">Get the Python Cheat Sheet (Free PDF)</p>
+
+              <form class="col-12" action="/optins/process/" method="post">
+                <input type="hidden" name="csrfmiddlewaretoken" value="tAJYValU8PhXbwzmhfQlfxo56a9jTU7pE2ltUbeg9qmR9pgJNG9kJIyCeMRGgx2f">
+                
+                <input type="hidden" name="slug" value="python-cheat-sheet-shortened">
+                <input type="hidden" name="source_path" value="/java-vs-python/"> 
+                <div class="form-group">
+                  <input type="email" name="email" class="form-control" placeholder="Email Address" required autofocus>
+                </div>
+                <button name="submit" type="submit" class="btn btn-primary btn-block text-wrap">Send My Python Cheat Sheet »</button>
+                <p class="mb-0 mt-2 text-muted text-center"><small>🔒 No spam. We take your privacy seriously.</small></p>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+        
+      
+    
+
+    
+      <footer class="footer">
+  <div class="container">
+    
+      <div class="mx-auto mt-4 mb-0" style="max-width: 768px;">
+        
+<div style="display:block;position:relative;">
+  <div style="display:block;width:100%;padding-top:12.5%;"></div>
+  <div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div>
+</div>
+<a class="small text-muted" href="/account/join/" rel="nofollow"><i class="fa fa-info-circle mr-1" aria-hidden="true"></i>Remove ads</a>
+
+
+      </div>
+    
+
+    <p class="text-center text-muted w-75 mx-auto">© 2012–2022 Real&nbsp;Python&nbsp;⋅ <a href="/newsletter/">Newsletter</a>&nbsp;⋅ <a href="/podcasts/rpp/">Podcast</a>&nbsp;⋅ <a href="https://www.youtube.com/realpython">YouTube</a>&nbsp;⋅ <a href="https://twitter.com/realpython">Twitter</a>&nbsp;⋅ <a href="https://facebook.com/LearnRealPython">Facebook</a>&nbsp;⋅ <a href="https://www.instagram.com/realpython/">Instagram</a>&nbsp;⋅ <a href="/">Python&nbsp;Tutorials</a>&nbsp;⋅ <a href="/search">Search</a>&nbsp;⋅ <a href="/privacy-policy/">Privacy Policy</a>&nbsp;⋅ <a href="/energy-policy/" class="">Energy Policy</a>&nbsp;⋅ <a href="/sponsorships/">Advertise</a>&nbsp;⋅ <a href="/contact/">Contact</a><br>❤️ Happy Pythoning!</p>
+  </div>
+</footer>
+
+    
+
+    
+    
+    <script>
+      (function(document, history, location) {
+        var HISTORY_SUPPORT = !!(history && history.pushState);
+
+        var anchorScrolls = {
+          ANCHOR_REGEX: /^#[^ ]+$/,
+          OFFSET_HEIGHT_PX: 120,
+
+          /**
+           * Establish events, and fix initial scroll position if a hash is provided.
+           */
+          init: function() {
+            this.scrollToCurrent();
+            window.addEventListener('hashchange', this.scrollToCurrent.bind(this));
+            document.body.addEventListener('click', this.delegateAnchors.bind(this));
+          },
+
+          /**
+           * Return the offset amount to deduct from the normal scroll position.
+           * Modify as appropriate to allow for dynamic calculations
+           */
+          getFixedOffset: function() {
+            return this.OFFSET_HEIGHT_PX;
+          },
+
+          /**
+           * If the provided href is an anchor which resolves to an element on the
+           * page, scroll to it.
+           * @param  {String} href
+           * @return {Boolean} - Was the href an anchor.
+           */
+          scrollIfAnchor: function(href, pushToHistory) {
+            var match, rect, anchorOffset;
+
+            if(!this.ANCHOR_REGEX.test(href)) {
+              return false;
+            }
+
+            match = document.getElementById(href.slice(1));
+
+            if(match) {
+              rect = match.getBoundingClientRect();
+              anchorOffset = window.pageYOffset + rect.top - this.getFixedOffset();
+              window.scrollTo(window.pageXOffset, anchorOffset);
+
+              // Add the state to history as-per normal anchor links
+              if(HISTORY_SUPPORT && pushToHistory) {
+                history.pushState({}, document.title, location.pathname + href);
+              }
+            }
+
+            return !!match;
+          },
+
+          /**
+           * Attempt to scroll to the current location's hash.
+           */
+          scrollToCurrent: function() {
+            this.scrollIfAnchor(window.location.hash);
+          },
+
+          /**
+           * If the click event's target was an anchor, fix the scroll position.
+           */
+          delegateAnchors: function(e) {
+            var elem = e.target;
+
+            // 
+            if (elem.dataset.toggle === "tab") {
+              return;
+            }
+
+            if(
+              elem.nodeName === 'A' &&
+              this.scrollIfAnchor(elem.getAttribute('href'), true)
+            ) {
+              e.preventDefault();
+            }
+          }
+        };
+
+        window.addEventListener(
+          'DOMContentLoaded', anchorScrolls.init.bind(anchorScrolls)
+        );
+      })(window.document, window.history, window.location);
+    </script>
+    
+
+    
+    <script>
+      (function() {
+        var isAndroid = navigator.userAgent.toLowerCase().indexOf("android") > -1;
+        if (!isAndroid) {
+          return;
+        }
+
+        var styles = `
+        @font-face {
+          font-family: 'DejaVu Sans Mono';
+          font-weight: normal;
+          font-style: normal;
+          font-display: swap;
+          src: url('https://cdn.realpython.com/static/mfonts/dejavu-sans-mono.33f00225f915.woff2') format('woff2'),
+               url('https://cdn.realpython.com/static/mfonts/dejavu-sans-mono.0da77d3739f3.woff') format('woff'),
+               url('https://cdn.realpython.com/static/mfonts/dejavu-sans-mono.c2356fc49835.ttf') format('truetype');
+        }
+        code, kbd, pre, samp {
+          font-family: 'DejaVu Sans Mono', monospace;
+        }
+        `
+
+        var styleSheet = document.createElement("style")
+        styleSheet.type = "text/css"
+        styleSheet.innerText = styles
+        document.head.appendChild(styleSheet)
+      })();
+    </script>
+
+    
+    
+    <script src="https://cdn.realpython.com/static/jquery.min.00727d1d5d9c.js"></script>
+    <script src="https://cdn.realpython.com/static/popper.min.47dc3aaf2942.js"></script>
+    <script src="https://cdn.realpython.com/static/bootstrap.min.a3b2689424c3.js"></script>
+
+    
+    
+
+    <script>
+    (function() {
+      document.querySelectorAll(".js-search-form-submit").forEach(function(el) {
+        el.addEventListener("click", function(e) {
+          e.preventDefault();
+          e.currentTarget.parentElement.submit();
+        })
+      });
+    })();
+    </script>
+    <script src="https://cdn.realpython.com/static/frontend/reader/repl-toggle.925bef973b9c.js" async></script>
+    <script src="https://cdn.realpython.com/static/frontend/reader/lightbox.bab438c0f968.js" async></script>
+    <script src="https://cdn.realpython.com/static/frontend/reader/platforms-ui.b11202dc6079.js" async></script>
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+<script>window.rp_prop_id = '58946116052';</script>
+<script src="https://srv.realpython.net/tag.js" async></script>
+
+
+
+<script src="https://cdn.realpython.com/static/frontend/reader/toc-refresh.76a102c7d921.js" async></script>
+
+<script id="js-context" type="application/json">{"is_completed": false, "is_bookmarked": false, "api_article_bookmark_url": "/api/v1/articles/java-vs-python/bookmark/", "api_article_completion_status_url": "/api/v1/articles/java-vs-python/completion_status/"}</script>
+<script src="https://cdn.realpython.com/static/frontend/reader/completion-status.0689aa7a4df0.js" async></script>
+
+
+
+
+
+
+  
+    <script id="dsq-count-scr" src="https://realpython.disqus.com/count.js" async></script>
+    <script>
+      var disqus_config = function () {
+        this.page.url = 'https://realpython.com/java-vs-python/';
+        this.page.identifier = 'https://realpython.com/java-vs-python/';
+        this.callbacks.onReady = [function() {
+          if (window.onDisqusReady) {
+            window.onDisqusReady();
+          }
+        }];
+      };
+      var disqus_script_url = 'https://realpython.disqus.com/embed.js';
+    </script>
+    <script src="https://cdn.realpython.com/static/frontend/reader/lazy-disqus.07ee9079f4a3.js" defer></script>
+  
+
+
+  
+  
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+  <script>
+    var OneSignal = window.OneSignal || [];
+    OneSignal.push(function() {
+      OneSignal.init({
+        appId: "c0081e20-a523-42bb-b0ac-04c5a9e8bf40"
+      });
+    });
+  </script>
+  
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Java vs Python: Basic Python for Java Developers",
+    
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://files.realpython.com/media/Java-vs-Python-What-a-Java-Developer-Should-Know-About-Python_Watermarked.cc6cffe5a61a.jpg",
+      "width": 1920,
+      "height": 1080
+    },
+    
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://realpython.com/java-vs-python/"
+    },
+    "datePublished": "2021-12-13T14:00:00+00:00",
+    "dateModified": "2022-06-03T20:11:28.450404+00:00",
+     "publisher": {
+      "@type": "Organization",
+      "name": "Real Python",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://cdn.realpython.com/static/real-python-logo-square-tiny.b2452b6d3823.png",
+        "width": 60,
+        "height": 60
+      }
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Real Python",
+      "url": "https://realpython.com",
+      "logo": "https://cdn.realpython.com/static/real-python-logo-square.146e987bf77c.png"
+    },
+    "description": "Are you an experienced Java developer who wants to know more about Python? In this tutorial, you\u0027ll compare Java vs Python and get to know the similarities and differences between the languages. You\u0027ll also learn how to figure out when Python is a good choice for your specific use cases."
+  }
+  </script>
+  
+
+
+    
+
+    
+
+    
+<script>
+  var _dcq = _dcq || [];
+  var _dcs = _dcs || {};
+  _dcs.account = '6214500';
+
+  (function() {
+    var dc = document.createElement('script');
+    dc.type = 'text/javascript'; dc.async = true;
+    dc.src = '//tag.getdrip.com/6214500.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(dc, s);
+  })();
+</script>
+
+
+    
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2220911568135371');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2220911568135371&ev=PageView&noscript=1"
+/></noscript>
+
+
+    
+
+    
+
+  </body>
+</html>

@@ -1,0 +1,12 @@
+<h1> Your List </h1/>
+<p>
+  {% if item_list.count > 0 %}
+	<ol>
+	  {% for item in item_list %}
+		<li> {{ item.text }} </li>
+	  {% endfor %}
+	</ol>	  
+  {% else %}
+  <div> Your list is empty. Add an item! </div>
+  {% endif %} 
+</p>

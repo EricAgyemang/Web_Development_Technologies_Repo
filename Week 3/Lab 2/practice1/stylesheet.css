@@ -1,0 +1,39 @@
+h1{
+color:blue;
+font-style: italic;
+}
+
+@keyframes plays {
+	from { background-position:    0px;  } 
+	to { background-position: -2000px;  } 
+}
+
+#zombie {   
+    width: 200px;
+    height: 312px;
+    background-image: url(imagess/walkingdead.png);
+    animation: plays 1.8s steps(10) infinite ;	
+    margin:auto;				                    
+}
+
+#wrapper{
+	width: 600px;
+    	height: 200px;
+	position: relative;
+	animation: move 4s infinite ;
+        animation-direction: alternate;
+} 
+
+@keyframes move {
+    0%   {left:500px; top:0px; opacity: 1;}
+    25%  {left:400px; top:50px; opacity: 0.1;}
+    50%  {left:300px; top:50px;opacity: 1;}
+    75%  {left:200px; top:0px;opacity: 0.1;}
+    100% {left:100px; top:50px; opacity: 1;}
+    animation-direction: alternate;
+    
+}
+
+
+
+

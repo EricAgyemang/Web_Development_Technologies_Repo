@@ -1,0 +1,75 @@
+.container{
+        color:blue;
+	width: 500px;
+	position:relative;
+	margin:auto;
+	text-align: center;
+}
+
+#required{
+   color: red;
+   position:relative;
+   margin:auto;
+   text-align: center;
+}
+
+#body{
+  background-color:lightblue;
+  border:1px solid black;
+  padding:80px;
+}
+
+#form {
+	width: 500px;
+	position:relative;
+	margin:auto;
+}
+
+form label{
+	position:relative;
+	display:inline-block;
+	width: 100px;
+	text-align: right;
+	margin-right: 10px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:14px;
+}
+
+label.required:before{
+        content:"*";
+        margin-right:4px;
+        color:red;
+}
+
+input:focus:invalid {
+  /* insert your own styles for invalid form input */
+   background-image: url("images/invalid.png");
+   background-position: right;
+   background-repeat: no-repeat;
+}
+
+input:focus:valid {
+background-image: url("images/valid.png");
+background-position: right;
+background-repeat: no-repeat;
+}
+
+
+form input, select, span {
+	margin-bottom: 10px;
+}
+
+form textarea {
+	width: 350px;
+	height: 150px;
+}
+
+[type="submit"] {
+	display:block;
+	margin:  10px auto;
+	font-size:18px;
+}
+
+
+
+

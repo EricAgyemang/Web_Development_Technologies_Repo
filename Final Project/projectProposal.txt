@@ -1,0 +1,14 @@
+Project Name: Adidas Social Login
+
+Problem statement (one paragraph) What problem does your app seek to solve? 
+If the user visits a website they do not want to create an account for, they can choose the social login option (Google, Facebook, Github, etc.)
+but that will require the user to get redirected to that site and have them login in there. 
+
+Project description (one paragraph) How will your app address the problem statement?
+Self servicing password management for users through the use of social networking websites like Google, Facebook, Github, etc. This reduces the time it takes for a 
+user to login into a website if they plan on using a social network account to login because it will remember the user's information for future logins.
+
+What technologies are you planning to use on your project (in addition to Django) In particular list any python packages or additional web frameworks or libraries you plan on using at this time.
+
+
+For the purpose of writing user stories, list the roles which describe your projects stakeholders.

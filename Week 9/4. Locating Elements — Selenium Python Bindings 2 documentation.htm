@@ -1,0 +1,496 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>4. Locating Elements — Selenium Python Bindings 2 documentation</title>
+    <link rel="stylesheet" href="4.%20Locating%20Elements%20%E2%80%94%20Selenium%20Python%20Bindings%202%20documentation_files/alabaster.css" type="text/css">
+    <link rel="stylesheet" href="4.%20Locating%20Elements%20%E2%80%94%20Selenium%20Python%20Bindings%202%20documentation_files/pygments.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="4.%20Locating%20Elements%20%E2%80%94%20Selenium%20Python%20Bindings%202%20documentation_files/badge_only.css">
+    <script type="text/javascript" async="" src="4.%20Locating%20Elements%20%E2%80%94%20Selenium%20Python%20Bindings%202%20documentation_files/analytics.js"></script><script type="text/javascript" id="documentation_options" data-url_root="./" src="4.%20Locating%20Elements%20%E2%80%94%20Selenium%20Python%20Bindings%202%20documentation_files/documentation_options.js"></script>
+    <script type="text/javascript" src="4.%20Locating%20Elements%20%E2%80%94%20Selenium%20Python%20Bindings%202%20documentation_files/jquery.js"></script>
+    <script type="text/javascript" src="4.%20Locating%20Elements%20%E2%80%94%20Selenium%20Python%20Bindings%202%20documentation_files/underscore.js"></script>
+    <script type="text/javascript" src="4.%20Locating%20Elements%20%E2%80%94%20Selenium%20Python%20Bindings%202%20documentation_files/doctools.js"></script>
+    <script type="text/javascript" src="4.%20Locating%20Elements%20%E2%80%94%20Selenium%20Python%20Bindings%202%20documentation_files/language_data.js"></script>
+    <script async="async" type="text/javascript" src="4.%20Locating%20Elements%20%E2%80%94%20Selenium%20Python%20Bindings%202%20documentation_files/readthedocs-doc-embed.js"></script>
+    <link rel="canonical" href="https://selenium-python.readthedocs.io/locating-elements.html">
+    <link rel="index" title="Index" href="https://selenium-python.readthedocs.io/genindex.html">
+    <link rel="search" title="Search" href="https://selenium-python.readthedocs.io/search.html">
+    <link rel="next" title="5. Waits" href="https://selenium-python.readthedocs.io/waits.html">
+    <link rel="prev" title="3. Navigating" href="https://selenium-python.readthedocs.io/navigating.html">
+   
+  <link rel="stylesheet" href="4.%20Locating%20Elements%20%E2%80%94%20Selenium%20Python%20Bindings%202%20documentation_files/custom.css" type="text/css">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  
+<!-- RTD Extra Head -->
+
+<link rel="stylesheet" href="4.%20Locating%20Elements%20%E2%80%94%20Selenium%20Python%20Bindings%202%20documentation_files/readthedocs-doc-embed.css" type="text/css">
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "build_date": "2022-09-25T18:59:09Z", "builder": "sphinx", "canonical_url": null, "commit": "eda1ecca", "docroot": "/source/", "features": {"docsearch_disabled": false}, "global_analytics_code": "UA-17997319-1", "language": "en", "page": "locating-elements", "programming_language": "py", "project": "selenium-python", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "alabaster", "user_analytics_code": "", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+<script type="text/javascript" src="4.%20Locating%20Elements%20%E2%80%94%20Selenium%20Python%20Bindings%202%20documentation_files/readthedocs-analytics.js" async="async"></script>
+
+<!-- end RTD <extrahead> -->
+<script src="4.%20Locating%20Elements%20%E2%80%94%20Selenium%20Python%20Bindings%202%20documentation_files/js" type="text/javascript" async=""></script><script src="4.%20Locating%20Elements%20%E2%80%94%20Selenium%20Python%20Bindings%202%20documentation_files/ethicalads.min.js" type="text/javascript" async="" id="ethicaladsjs"></script><style>[data-ea-publisher].loaded,[data-ea-type].loaded{font-size:14px;font-family:-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;font-weight:normal;font-style:normal;leter-spacing:0px;vertical-align:baseline;line-height:1.3em}[data-ea-publisher].loaded a,[data-ea-type].loaded a{text-decoration:none}[data-ea-publisher].loaded .ea-pixel,[data-ea-type].loaded .ea-pixel{display:none}[data-ea-publisher].loaded .ea-content,[data-ea-type].loaded .ea-content{margin:1em 1em 0.5em 1em;padding:1em;background:rgba(0,0,0,0.03);color:#505050}[data-ea-publisher].loaded .ea-content a:link,[data-ea-type].loaded .ea-content a:link{color:#505050}[data-ea-publisher].loaded .ea-content a:visited,[data-ea-type].loaded .ea-content a:visited{color:#505050}[data-ea-publisher].loaded .ea-content a:hover,[data-ea-type].loaded .ea-content a:hover{color:#373737}[data-ea-publisher].loaded .ea-content a:active,[data-ea-type].loaded .ea-content a:active{color:#373737}[data-ea-publisher].loaded .ea-content a strong,[data-ea-publisher].loaded .ea-content a b,[data-ea-type].loaded .ea-content a strong,[data-ea-type].loaded .ea-content a b{color:#088cdb}[data-ea-publisher].loaded .ea-callout a:link,[data-ea-type].loaded .ea-callout a:link{color:#6a6a6a}[data-ea-publisher].loaded .ea-callout a:visited,[data-ea-type].loaded .ea-callout a:visited{color:#6a6a6a}[data-ea-publisher].loaded .ea-callout a:hover,[data-ea-type].loaded .ea-callout a:hover{color:#505050}[data-ea-publisher].loaded .ea-callout a:active,[data-ea-type].loaded .ea-callout a:active{color:#505050}[data-ea-publisher].loaded .ea-callout a strong,[data-ea-publisher].loaded .ea-callout a b,[data-ea-type].loaded .ea-callout a strong,[data-ea-type].loaded .ea-callout a b{color:#088cdb}[data-ea-publisher].loaded .ea-callout a,[data-ea-type].loaded .ea-callout a{font-size:0.8em}[data-ea-publisher].loaded.dark .ea-content,[data-ea-type].loaded.dark .ea-content{background:rgba(255,255,255,0.05);color:#dcdcdc}[data-ea-publisher].loaded.dark .ea-content a:link,[data-ea-type].loaded.dark .ea-content a:link{color:#dcdcdc}[data-ea-publisher].loaded.dark .ea-content a:visited,[data-ea-type].loaded.dark .ea-content a:visited{color:#dcdcdc}[data-ea-publisher].loaded.dark .ea-content a:hover,[data-ea-type].loaded.dark .ea-content a:hover{color:#f6f6f6}[data-ea-publisher].loaded.dark .ea-content a:active,[data-ea-type].loaded.dark .ea-content a:active{color:#f6f6f6}[data-ea-publisher].loaded.dark .ea-content a strong,[data-ea-publisher].loaded.dark .ea-content a b,[data-ea-type].loaded.dark .ea-content a strong,[data-ea-type].loaded.dark .ea-content a b{color:#50baf9}[data-ea-publisher].loaded.dark .ea-callout a:link,[data-ea-type].loaded.dark .ea-callout a:link{color:#c3c3c3}[data-ea-publisher].loaded.dark .ea-callout a:visited,[data-ea-type].loaded.dark .ea-callout a:visited{color:#c3c3c3}[data-ea-publisher].loaded.dark .ea-callout a:hover,[data-ea-type].loaded.dark .ea-callout a:hover{color:#dcdcdc}[data-ea-publisher].loaded.dark .ea-callout a:active,[data-ea-type].loaded.dark .ea-callout a:active{color:#dcdcdc}[data-ea-publisher].loaded.dark .ea-callout a strong,[data-ea-publisher].loaded.dark .ea-callout a b,[data-ea-type].loaded.dark .ea-callout a strong,[data-ea-type].loaded.dark .ea-callout a b{color:#50baf9}@media (prefers-color-scheme: dark){[data-ea-publisher].loaded.adaptive .ea-content,[data-ea-type].loaded.adaptive .ea-content{background:rgba(255,255,255,0.05);color:#dcdcdc}[data-ea-publisher].loaded.adaptive .ea-content a:link,[data-ea-type].loaded.adaptive .ea-content a:link{color:#dcdcdc}[data-ea-publisher].loaded.adaptive .ea-content a:visited,[data-ea-type].loaded.adaptive .ea-content a:visited{color:#dcdcdc}[data-ea-publisher].loaded.adaptive .ea-content a:hover,[data-ea-type].loaded.adaptive .ea-content a:hover{color:#f6f6f6}[data-ea-publisher].loaded.adaptive .ea-content a:active,[data-ea-type].loaded.adaptive .ea-content a:active{color:#f6f6f6}[data-ea-publisher].loaded.adaptive .ea-content a strong,[data-ea-publisher].loaded.adaptive .ea-content a b,[data-ea-type].loaded.adaptive .ea-content a strong,[data-ea-type].loaded.adaptive .ea-content a b{color:#50baf9}[data-ea-publisher].loaded.adaptive .ea-callout a:link,[data-ea-type].loaded.adaptive .ea-callout a:link{color:#c3c3c3}[data-ea-publisher].loaded.adaptive .ea-callout a:visited,[data-ea-type].loaded.adaptive .ea-callout a:visited{color:#c3c3c3}[data-ea-publisher].loaded.adaptive .ea-callout a:hover,[data-ea-type].loaded.adaptive .ea-callout a:hover{color:#dcdcdc}[data-ea-publisher].loaded.adaptive .ea-callout a:active,[data-ea-type].loaded.adaptive .ea-callout a:active{color:#dcdcdc}[data-ea-publisher].loaded.adaptive .ea-callout a strong,[data-ea-publisher].loaded.adaptive .ea-callout a b,[data-ea-type].loaded.adaptive .ea-callout a strong,[data-ea-type].loaded.adaptive .ea-callout a b{color:#50baf9}}[data-ea-publisher].loaded .ea-content,[data-ea-type].loaded .ea-content{border:0px;border-radius:3px;box-shadow:0px 2px 3px rgba(0,0,0,0.15)}[data-ea-publisher].loaded.raised .ea-content,[data-ea-type].loaded.raised .ea-content{border:0px;border-radius:3px;box-shadow:0px 2px 3px rgba(0,0,0,0.15)}[data-ea-publisher].loaded.bordered .ea-content,[data-ea-type].loaded.bordered .ea-content{border:1px solid rgba(0,0,0,0.04);border-radius:3px;box-shadow:none}[data-ea-publisher].loaded.bordered.dark .ea-content,[data-ea-type].loaded.bordered.dark .ea-content{border:1px solid rgba(255,255,255,0.07)}@media (prefers-color-scheme: dark){[data-ea-publisher].loaded.bordered.adaptive .ea-content,[data-ea-type].loaded.bordered.adaptive .ea-content{border:1px solid rgba(255,255,255,0.07)}}[data-ea-publisher].loaded.flat .ea-content,[data-ea-type].loaded.flat .ea-content{border:0px;border-radius:3px;box-shadow:none}[data-ea-type="image"].loaded,[data-ea-publisher]:not([data-ea-type]).loaded,.ea-type-image{display:inline-block}[data-ea-type="image"].loaded .ea-content,[data-ea-publisher]:not([data-ea-type]).loaded .ea-content,.ea-type-image .ea-content{max-width:180px;overflow:auto;text-align:center}[data-ea-type="image"].loaded .ea-content>a>img,[data-ea-publisher]:not([data-ea-type]).loaded .ea-content>a>img,.ea-type-image .ea-content>a>img{width:120px;height:90px;display:inline-block}[data-ea-type="image"].loaded .ea-content>.ea-text,[data-ea-publisher]:not([data-ea-type]).loaded .ea-content>.ea-text,.ea-type-image .ea-content>.ea-text{margin-top:1em;font-size:1em;text-align:center}[data-ea-type="image"].loaded .ea-callout,[data-ea-publisher]:not([data-ea-type]).loaded .ea-callout,.ea-type-image .ea-callout{max-width:180px;margin:0em 1em 1em 1em;padding-left:1em;padding-right:1em;font-style:italic;text-align:right}[data-ea-type="image"].loaded.horizontal .ea-content,[data-ea-publisher]:not([data-ea-type]).loaded.horizontal .ea-content,.ea-type-image.horizontal .ea-content{max-width:320px}[data-ea-type="image"].loaded.horizontal .ea-content>a>img,[data-ea-publisher]:not([data-ea-type]).loaded.horizontal .ea-content>a>img,.ea-type-image.horizontal .ea-content>a>img{float:left;margin-right:1em}[data-ea-type="image"].loaded.horizontal .ea-content .ea-text,[data-ea-publisher]:not([data-ea-type]).loaded.horizontal .ea-content .ea-text,.ea-type-image.horizontal .ea-content .ea-text{margin-top:0em;text-align:left;overflow:auto}[data-ea-type="image"].loaded.horizontal .ea-callout,[data-ea-publisher]:not([data-ea-type]).loaded.horizontal .ea-callout,.ea-type-image.horizontal .ea-callout{max-width:320px;text-align:right}[data-ea-type="text"].loaded,.ea-type-text{font-size:14px}[data-ea-type="text"].loaded .ea-content,.ea-type-text .ea-content{text-align:left}[data-ea-type="text"].loaded .ea-callout,.ea-type-text .ea-callout{margin:0.5em 1em 1em 1em;padding-left:1em;padding-right:1em;text-align:right;font-style:italic}[data-ea-style="stickybox"].loaded{position:fixed;bottom:20px;right:20px;z-index:10}[data-ea-style="stickybox"].loaded .ea-type-image .ea-stickybox-hide{cursor:pointer;position:absolute;top:0.75em;right:0.75em;background-color:#fefefe;border:1px solid #088cdb;border-radius:50%;color:#088cdb;font-size:1em;text-align:center;height:1.5em;width:1.5em;line-height:1.5em}@media (max-width: 1300px){[data-ea-style="stickybox"].loaded{position:static;bottom:0;right:0;margin:auto;text-align:center}[data-ea-style="stickybox"].loaded .ea-stickybox-hide{display:none}}@media (min-width: 1301px){[data-ea-style="stickybox"].loaded .ea-type-image .ea-content{background:#dcdcdc}[data-ea-style="stickybox"].loaded.dark .ea-type-image .ea-content{background:#505050}}@media (min-width: 1301px) and (prefers-color-scheme: dark){[data-ea-style="stickybox"].loaded.adaptive .ea-type-image .ea-content{background:#505050}}[data-ea-style="fixedfooter"].loaded{position:fixed;bottom:0;left:0;z-index:10;width:100%;max-width:100%}[data-ea-style="fixedfooter"].loaded .ea-type-text{width:100%;max-width:100%;display:flex;z-index:10;background:#dcdcdc}[data-ea-style="fixedfooter"].loaded .ea-type-text .ea-content{border:0px;border-radius:3px;box-shadow:none}[data-ea-style="fixedfooter"].loaded .ea-type-text .ea-content{background-color:inherit;max-width:100%;margin:0;padding:1em;flex:auto}[data-ea-style="fixedfooter"].loaded .ea-type-text .ea-callout{max-width:100%;margin:0;padding:1em;flex:initial}@media (max-width: 576px){[data-ea-style="fixedfooter"].loaded .ea-type-text .ea-callout{display:none}}[data-ea-style="fixedfooter"].loaded .ea-type-text .ea-fixedfooter-hide{cursor:pointer;color:#505050;padding:1em;flex:initial;margin:auto 0}[data-ea-style="fixedfooter"].loaded .ea-type-text .ea-fixedfooter-hide span{padding:0.25em;font-size:0.8em;font-weight:bold;border:0.15em solid #505050;border-radius:0.5em;white-space:nowrap}[data-ea-style="fixedfooter"].loaded.dark .ea-type-text{background:#505050}[data-ea-style="fixedfooter"].loaded.dark .ea-type-text .ea-fixedfooter-hide span{color:#dcdcdc;border-color:#dcdcdc}@media (prefers-color-scheme: dark){[data-ea-style="fixedfooter"].loaded.adaptive .ea-type-text{background:#505050}[data-ea-style="fixedfooter"].loaded.adaptive .ea-type-text .ea-fixedfooter-hide span{color:#dcdcdc;border-color:#dcdcdc}}
+</style><script src="4.%20Locating%20Elements%20%E2%80%94%20Selenium%20Python%20Bindings%202%20documentation_files/prompt.js"></script><script src="4.%20Locating%20Elements%20%E2%80%94%20Selenium%20Python%20Bindings%202%20documentation_files/index" type="text/javascript" async=""></script></head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="locating-elements">
+<span id="id1"></span><h1>4. Locating Elements<a class="headerlink" href="#locating-elements" title="Permalink to this headline">¶</a></h1>
+<p>There are various strategies to locate elements in a page.  You can use the most
+appropriate one for your case.  Selenium provides the following method to
+locate elements in a page:</p>
+<ul class="simple">
+<li><cite>find_element</cite></li>
+</ul>
+<p><strong>To find multiple elements (these methods will return a list):</strong></p>
+<ul class="simple">
+<li><cite>find_elements</cite></li>
+</ul>
+<p>Example usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
+
+<span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="s1">'//button[text()="Some text"]'</span><span class="p">)</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">find_elements</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="s1">'//button'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The attributes available for the <cite>By</cite> class are used to locate elements on a page.
+These are the attributes available for <cite>By</cite> class:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ID</span> <span class="o">=</span> <span class="s2">"id"</span>
+<span class="n">NAME</span> <span class="o">=</span> <span class="s2">"name"</span>
+<span class="n">XPATH</span> <span class="o">=</span> <span class="s2">"xpath"</span>
+<span class="n">LINK_TEXT</span> <span class="o">=</span> <span class="s2">"link text"</span>
+<span class="n">PARTIAL_LINK_TEXT</span> <span class="o">=</span> <span class="s2">"partial link text"</span>
+<span class="n">TAG_NAME</span> <span class="o">=</span> <span class="s2">"tag name"</span>
+<span class="n">CLASS_NAME</span> <span class="o">=</span> <span class="s2">"class name"</span>
+<span class="n">CSS_SELECTOR</span> <span class="o">=</span> <span class="s2">"css selector"</span>
+</pre></div>
+</div>
+<p>The ‘By’ class is used to specify which attribute is used to locate elements on a page.
+These are the various ways the attributes are used to locate elements on a page:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s2">"id"</span><span class="p">)</span>
+<span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">NAME</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">)</span>
+<span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="s2">"xpath"</span><span class="p">)</span>
+<span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">LINK_TEXT</span><span class="p">,</span> <span class="s2">"link text"</span><span class="p">)</span>
+<span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">PARTIAL_LINK_TEXT</span><span class="p">,</span> <span class="s2">"partial link text"</span><span class="p">)</span>
+<span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">TAG_NAME</span><span class="p">,</span> <span class="s2">"tag name"</span><span class="p">)</span>
+<span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CLASS_NAME</span><span class="p">,</span> <span class="s2">"class name"</span><span class="p">)</span>
+<span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s2">"css selector"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you want to locate several elements with the same attribute replace find_element with find_elements.</p>
+<div class="section" id="locating-by-id">
+<h2>4.1. Locating by Id<a class="headerlink" href="#locating-by-id" title="Permalink to this headline">¶</a></h2>
+<p>Use this when you know the <cite>id</cite> attribute of an element.  With this strategy,
+the first element with a matching <cite>id</cite> attribute will be returned.  If no
+element has a matching <cite>id</cite> attribute, a <code class="docutils literal notranslate"><span class="pre">NoSuchElementException</span></code> will be
+raised.</p>
+<p>For instance, consider this page source:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">form</span> <span class="nb">id</span><span class="o">=</span><span class="s2">"loginForm"</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="nb">input</span> <span class="n">name</span><span class="o">=</span><span class="s2">"username"</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="o">/&gt;</span>
+   <span class="o">&lt;</span><span class="nb">input</span> <span class="n">name</span><span class="o">=</span><span class="s2">"password"</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"password"</span> <span class="o">/&gt;</span>
+   <span class="o">&lt;</span><span class="nb">input</span> <span class="n">name</span><span class="o">=</span><span class="s2">"continue"</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"submit"</span> <span class="n">value</span><span class="o">=</span><span class="s2">"Login"</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
+ <span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>The form element can be located like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">login_form</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s1">'loginForm'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="locating-by-name">
+<h2>4.2. Locating by Name<a class="headerlink" href="#locating-by-name" title="Permalink to this headline">¶</a></h2>
+<p>Use this when you know the <cite>name</cite> attribute of an element.  With this strategy,
+the first element with a matching <cite>name</cite> attribute will be returned.  If no
+element has a matching <cite>name</cite> attribute, a <code class="docutils literal notranslate"><span class="pre">NoSuchElementException</span></code> will be
+raised.</p>
+<p>For instance, consider this page source:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">form</span> <span class="nb">id</span><span class="o">=</span><span class="s2">"loginForm"</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="nb">input</span> <span class="n">name</span><span class="o">=</span><span class="s2">"username"</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="o">/&gt;</span>
+   <span class="o">&lt;</span><span class="nb">input</span> <span class="n">name</span><span class="o">=</span><span class="s2">"password"</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"password"</span> <span class="o">/&gt;</span>
+   <span class="o">&lt;</span><span class="nb">input</span> <span class="n">name</span><span class="o">=</span><span class="s2">"continue"</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"submit"</span> <span class="n">value</span><span class="o">=</span><span class="s2">"Login"</span> <span class="o">/&gt;</span>
+   <span class="o">&lt;</span><span class="nb">input</span> <span class="n">name</span><span class="o">=</span><span class="s2">"continue"</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"button"</span> <span class="n">value</span><span class="o">=</span><span class="s2">"Clear"</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>The username &amp; password elements can be located like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">username</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">NAME</span><span class="p">,</span> <span class="s1">'username'</span><span class="p">)</span>
+<span class="n">password</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">NAME</span><span class="p">,</span> <span class="s1">'password'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will give the “Login” button as it occurs before the “Clear” button:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">continue</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">NAME</span><span class="p">,</span> <span class="s1">'continue'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="locating-by-xpath">
+<h2>4.3. Locating by XPath<a class="headerlink" href="#locating-by-xpath" title="Permalink to this headline">¶</a></h2>
+<p>XPath is the language used for locating nodes in an XML document.  As HTML can
+be an implementation of XML (XHTML), Selenium users can leverage this powerful
+language to target elements in their web applications.  XPath supports the
+simple methods of locating by id or name attributes and extends them by opening
+up all sorts of new possibilities such as locating the third checkbox on the
+page.</p>
+<p>One of the main reasons for using XPath is when you don’t have a suitable id or
+name attribute for the element you wish to locate.  You can use XPath to either
+locate the element in absolute terms (not advised), or relative to an element
+that does have an id or name attribute.  XPath locators can also be used to
+specify elements via attributes other than id and name.</p>
+<p>Absolute XPaths contain the location of all elements from the root (html) and as
+a result are likely to fail with only the slightest adjustment to the
+application.  By finding a nearby element with an id or name attribute (ideally
+a parent element) you can locate your target element based on the relationship.
+This is much less likely to change and can make your tests more robust.</p>
+<p>For instance, consider this page source:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">form</span> <span class="nb">id</span><span class="o">=</span><span class="s2">"loginForm"</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="nb">input</span> <span class="n">name</span><span class="o">=</span><span class="s2">"username"</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="o">/&gt;</span>
+   <span class="o">&lt;</span><span class="nb">input</span> <span class="n">name</span><span class="o">=</span><span class="s2">"password"</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"password"</span> <span class="o">/&gt;</span>
+   <span class="o">&lt;</span><span class="nb">input</span> <span class="n">name</span><span class="o">=</span><span class="s2">"continue"</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"submit"</span> <span class="n">value</span><span class="o">=</span><span class="s2">"Login"</span> <span class="o">/&gt;</span>
+   <span class="o">&lt;</span><span class="nb">input</span> <span class="n">name</span><span class="o">=</span><span class="s2">"continue"</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"button"</span> <span class="n">value</span><span class="o">=</span><span class="s2">"Clear"</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>The form elements can be located like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">login_form</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="s2">"/html/body/form[1]"</span><span class="p">)</span>
+<span class="n">login_form</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="s2">"//form[1]"</span><span class="p">)</span>
+<span class="n">login_form</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="s2">"//form[@id='loginForm']"</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li>Absolute path (would break if the HTML was changed only slightly)</li>
+<li>First form element in the HTML</li>
+<li>The form element with attribute <cite>id</cite> set to <cite>loginForm</cite></li>
+</ol>
+<p>The username element can be located like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">username</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="s2">"//form[input/@name='username']"</span><span class="p">)</span>
+<span class="n">username</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="s2">"//form[@id='loginForm']/input[1]"</span><span class="p">)</span>
+<span class="n">username</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="s2">"//input[@name='username']"</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li>First form element with an input child element with <cite>name</cite> set to <cite>username</cite></li>
+<li>First input child element of the form element with attribute <cite>id</cite> set to
+<cite>loginForm</cite></li>
+<li>First input element with attribute <cite>name</cite> set to <cite>username</cite></li>
+</ol>
+<p>The “Clear” button element can be located like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">clear_button</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="s2">"//input[@name='continue'][@type='button']"</span><span class="p">)</span>
+<span class="n">clear_button</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="s2">"//form[@id='loginForm']/input[4]"</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li>Input with attribute <cite>name</cite> set to <cite>continue</cite> and attribute <cite>type</cite> set to
+<cite>button</cite></li>
+<li>Fourth input child element of the form element with attribute <cite>id</cite> set to
+<cite>loginForm</cite></li>
+</ol>
+<p>These examples cover some basics, but in order to learn more, the following
+references are recommended:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.w3schools.com/xml/xpath_intro.asp">W3Schools XPath Tutorial</a></li>
+<li><a class="reference external" href="http://www.w3.org/TR/xpath">W3C XPath Recommendation</a></li>
+<li><a class="reference external" href="http://www.zvon.org/comp/r/tut-XPath_1.html">XPath Tutorial</a>
+- with interactive examples.</li>
+</ul>
+<p>Here is a couple of very useful Add-ons that can assist in discovering the XPath
+of an element:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://addons.mozilla.org/en-US/firefox/addon/xpath_finder">xPath Finder</a> -
+Plugin to get the elements xPath.</li>
+<li><a class="reference external" href="https://chrome.google.com/webstore/detail/hgimnogjllphhhkhlmebbmlgjoejdpjl">XPath Helper</a> -
+for Google Chrome</li>
+</ul>
+</div>
+<div class="section" id="locating-hyperlinks-by-link-text">
+<h2>4.4. Locating Hyperlinks by Link Text<a class="headerlink" href="#locating-hyperlinks-by-link-text" title="Permalink to this headline">¶</a></h2>
+<p>Use this when you know the link text used within an anchor tag.  With this
+strategy, the first element with the link text matching the provided value will
+be returned.  If no element has a matching link text attribute, a
+<code class="docutils literal notranslate"><span class="pre">NoSuchElementException</span></code> will be raised.</p>
+<p>For instance, consider this page source:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;html&gt;
+ &lt;body&gt;
+  &lt;p&gt;Are you sure you want to do this?&lt;/p&gt;
+  &lt;a href="continue.html"&gt;Continue&lt;/a&gt;
+  &lt;a href="cancel.html"&gt;Cancel&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</div>
+<p>The continue.html link can be located like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">continue_link</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">LINK_TEXT</span><span class="p">,</span> <span class="s1">'Continue'</span><span class="p">)</span>
+<span class="n">continue_link</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">PARTIAL_LINK_TEXT</span><span class="p">,</span> <span class="s1">'Conti'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="locating-elements-by-tag-name">
+<h2>4.5. Locating Elements by Tag Name<a class="headerlink" href="#locating-elements-by-tag-name" title="Permalink to this headline">¶</a></h2>
+<p>Use this when you want to locate an element by tag name.  With this strategy,
+the first element with the given tag name will be returned.  If no element has a
+matching tag name, a <code class="docutils literal notranslate"><span class="pre">NoSuchElementException</span></code> will be raised.</p>
+<p>For instance, consider this page source:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Welcome</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">Site</span> <span class="n">content</span> <span class="n">goes</span> <span class="n">here</span><span class="o">.&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>The heading (h1) element can be located like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">heading1</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">TAG_NAME</span><span class="p">,</span> <span class="s1">'h1'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="locating-elements-by-class-name">
+<h2>4.6. Locating Elements by Class Name<a class="headerlink" href="#locating-elements-by-class-name" title="Permalink to this headline">¶</a></h2>
+<p>Use this when you want to locate an element by class name.  With this strategy,
+the first element with the matching class name attribute will be returned.  If
+no element has a matching class name attribute, a <code class="docutils literal notranslate"><span class="pre">NoSuchElementException</span></code>
+will be raised.</p>
+<p>For instance, consider this page source:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">p</span> <span class="n">class</span><span class="o">=</span><span class="s2">"content"</span><span class="o">&gt;</span><span class="n">Site</span> <span class="n">content</span> <span class="n">goes</span> <span class="n">here</span><span class="o">.&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>The “p” element can be located like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">content</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CLASS_NAME</span><span class="p">,</span> <span class="s1">'content'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="locating-elements-by-css-selectors">
+<h2>4.7. Locating Elements by CSS Selectors<a class="headerlink" href="#locating-elements-by-css-selectors" title="Permalink to this headline">¶</a></h2>
+<p>Use this when you want to locate an element using <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors">CSS selector</a>
+syntax.  With this strategy, the first element matching the given CSS selector
+will be returned.  If no element matches the provided CSS selector, a
+<code class="docutils literal notranslate"><span class="pre">NoSuchElementException</span></code> will be raised.</p>
+<p>For instance, consider this page source:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">p</span> <span class="n">class</span><span class="o">=</span><span class="s2">"content"</span><span class="o">&gt;</span><span class="n">Site</span> <span class="n">content</span> <span class="n">goes</span> <span class="n">here</span><span class="o">.&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>The “p” element can be located like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">content</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s1">'p.content'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://saucelabs.com/resources/articles/selenium-tips-css-selectors">Sauce Labs has good documentation</a> on CSS
+selectors.</p>
+</div>
+</div>
+
+
+          <div id="rtd-sidebar" data-ea-publisher="readthedocs" data-ea-type="readthedocs-sidebar" data-ea-manual="true" class="ethical-alabaster loaded" data-ea-keywords="python|python3|readthedocs-project-1233|readthedocs-project-selenium-python|selenium|testing|webdriver" data-ea-campaign-types="community|house|paid"><div class="ethical-sidebar"><div class="ethical-content"><a href="https://server.ethicalads.io/proxy/click/3308/54dfca97-057c-461d-93e6-5045f35420c9/" rel="nofollow noopener" target="_blank" class="ethical-image-link"><img src="4.%20Locating%20Elements%20%E2%80%94%20Selenium%20Python%20Bindings%202%20documentation_files/240x180Artboard_2.png" alt="Sponsored: Waldo"></a><div class="ethical-text"><a href="https://server.ethicalads.io/proxy/click/3308/54dfca97-057c-461d-93e6-5045f35420c9/" rel="nofollow noopener" target="_blank"><strong>Testing your mobile app just got easier. </strong><span>Enjoy more time to focus on new features.</span><strong> Start for free</strong></a></div></div><div class="ethical-callout"><small><em><a rel="nofollow noopener" target="_blank" href="https://ethicalads.io/?ref=rtd-sidebar&amp;ea-publisher=readthedocs">Ad by EthicalAds</a><span> &nbsp; · &nbsp; </span><a rel="nofollow noopener" target="_blank" href="https://www.ethicalads.io/publishers/?ref=rtd-sidebar-join&amp;ea-publisher=readthedocs">Host these ads</a></em></small></div></div></div></div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="https://selenium-python.readthedocs.io/index.html">
+    <img class="logo" src="4.%20Locating%20Elements%20%E2%80%94%20Selenium%20Python%20Bindings%202%20documentation_files/logo.webp" alt="Logo">
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="https://selenium-python.readthedocs.io/installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://selenium-python.readthedocs.io/getting-started.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://selenium-python.readthedocs.io/navigating.html">3. Navigating</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Locating Elements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#locating-by-id">4.1. Locating by Id</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#locating-by-name">4.2. Locating by Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#locating-by-xpath">4.3. Locating by XPath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#locating-hyperlinks-by-link-text">4.4. Locating Hyperlinks by Link Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#locating-elements-by-tag-name">4.5. Locating Elements by Tag Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#locating-elements-by-class-name">4.6. Locating Elements by Class Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#locating-elements-by-css-selectors">4.7. Locating Elements by CSS Selectors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://selenium-python.readthedocs.io/waits.html">5. Waits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://selenium-python.readthedocs.io/page-objects.html">6. Page Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://selenium-python.readthedocs.io/api.html">7. WebDriver API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://selenium-python.readthedocs.io/faq.html">8. Appendix: Frequently Asked Questions</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="https://selenium-python.readthedocs.io/index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="https://selenium-python.readthedocs.io/navigating.html" title="previous chapter">3. Navigating</a></li>
+      <li>Next: <a href="https://selenium-python.readthedocs.io/waits.html" title="next chapter">5. Waits</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q">
+      <input type="submit" value="Go">
+      <input type="hidden" name="check_keywords" value="yes">
+      <input type="hidden" name="area" value="default">
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      ©2011-2018, Baiju Muthukadan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="https://selenium-python.readthedocs.io/_sources/locating-elements.rst.txt" rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  
+<!-- Inserted RTD Footer -->
+
+<div class="injected">
+
+  
+  <div class="rst-versions rst-badge" data-toggle="rst-versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book">&nbsp;</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      
+
+      
+      
+      
+      
+
+      
+      
+      <dl>
+        <dt>Downloads</dt>
+        
+        <dd><a href="https://selenium-python.readthedocs.io/_/downloads/en/latest/pdf/">PDF</a></dd>
+        
+      </dl>
+      
+      
+
+      
+      <dl>
+        
+        <!-- These are kept as relative links for internal installs that are http -->
+        <dt>On Read the Docs</dt>
+        <dd>
+          <a href="https://readthedocs.org/projects/selenium-python/">Project Home</a>
+        </dd>
+        <dd>
+          <a href="https://readthedocs.org/projects/selenium-python/builds/">Builds</a>
+        </dd>
+        <dd>
+          <a href="https://readthedocs.org/projects/selenium-python/downloads/">Downloads</a>
+        </dd>
+      </dl>
+      
+
+      
+
+      
+      <dl>
+        <dt>On GitHub</dt>
+        <dd>
+          <a href="https://github.com/baijum/selenium-python/blob/master/source/locating-elements.rst">View</a>
+        </dd>
+        
+      </dl>
+      
+      
+
+      
+      <dl>
+        <dt>Search</dt>
+        <dd>
+          <div style="padding: 6px;">
+            
+            <form id="flyout-search-form" class="wy-form" target="_blank" action="//readthedocs.org/projects/selenium-python/search/" method="get">
+              <input type="text" name="q" aria-label="Search docs" placeholder="Search docs">
+              </form>
+          </div>
+        </dd>
+      </dl>
+      
+
+      <hr>
+
+      
+        <small>
+          <span>Hosted by <a href="https://readthedocs.org/">Read the Docs</a></span>
+          <span> · </span>
+          <a href="https://docs.readthedocs.io/page/privacy-policy.html">Privacy Policy</a>
+        </small>
+      
+
+      
+    </div>
+  </div>
+  
+
+</div>
+</body></html>

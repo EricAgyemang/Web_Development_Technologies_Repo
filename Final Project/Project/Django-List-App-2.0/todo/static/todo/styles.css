@@ -1,0 +1,48 @@
+.centerImage
+{
+	margin-bottom: 5px;
+	margin-top: 50px;
+	
+}
+
+body {
+	background: rgba(200, 16, 46);
+	font-family: 'Fira Code', 'Futura', sans-serif;
+}
+#wrapper {
+	margin-top: 10% !important;
+}
+#content {
+	background: white;
+	padding: 25px;
+}
+#content > h2 {
+	font-size: 18px;
+	text-align: center;
+	padding-top: 0;
+}
+.t10 {
+	margin-top: 10px;
+}
+.t20 {
+	margin-top: 20px;
+}
+.todo-completed {
+	text-decoration: line-through;
+	background: rgba(163, 216, 163, 0.83);
+}
+footer {
+	margin-top: 20px;
+	color: white;
+}
+.list-group-item {
+	color: black;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.show>.btn-primary.dropdown-toggle:focus {
+     color :rgba(163, 216, 163, 0.83);
+}
+
+
+

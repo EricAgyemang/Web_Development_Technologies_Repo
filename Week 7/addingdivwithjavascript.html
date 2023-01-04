@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+.test {
+  color: green;
+  border: 2px solid purple;
+}
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	
+$(document).ready(function(){
+
+var elemDiv = document.createElement('div');
+elemDiv.classList.add("test"); //add the test class to the new element div
+
+$("span").wrap(elemDiv);// wrap the "span" in the new element
+
+$("span").parent().css({"background-color": "red"}); //get the span parent and change the background-color
+});
+</script>
+</head>
+<body>
+
+<span> span </span>
+</body>
+</html>

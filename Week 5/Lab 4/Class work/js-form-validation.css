@@ -1,0 +1,41 @@
+h1, p{
+	width: 500px;
+	position:relative;
+	margin:auto;
+	text-align: center;
+}
+
+
+form {
+	width: 500px;
+	position:relative;
+	margin:auto;
+}
+
+form label{
+	position:relative;
+	display:inline-block;
+	width: 100px;
+	text-align: right;
+	margin-right: 10px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:14px;
+}
+
+form input, select, span {
+	margin-bottom: 10px;
+}
+
+form textarea {
+	width: 350px;
+	height: 150px;
+}
+
+[type="submit"] {
+	display:block;
+	margin:  10px auto;
+	font-size:18px;
+}
+
+
+

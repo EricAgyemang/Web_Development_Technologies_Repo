@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>GLOWING STARS</title>
+<link rel="stylesheet" href="starstyle.css">
+</head>
+
+<body>
+
+<div class="container">
+    <div class="star star1"></div>
+    <div class="star star2"></div>
+    <div class="star star3"></div>
+ </div>
+</body>
+</html>
+
+

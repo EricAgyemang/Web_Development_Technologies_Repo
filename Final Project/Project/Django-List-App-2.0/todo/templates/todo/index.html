@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>ToDo App</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Fira+Code" rel="stylesheet">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="{% static 'todo/bs/css/flatly.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'todo/styles.css' %}" />
+	</head>
+	<center><img class="centerImage" src="{% static 'todo/ISU.png' %}" ></center>
+	<body>
+
+		<div class="container-fluid" id="wrapper">
+			<header>
+				<span style="float:right;">
+					{% if user.is_authenticated %}
+					  Hello, {{ user.username }}. <a href="{% url 'logout' %}?next=/">Log out</a>.
+					{% else %}
+					  Not logged in. <a href="{% url 'login' %}?next=/">Log in</a>.
+					{% endif %}
+				</span>
+			</header>
+			
+			<div class="row">
+				<div class="col-lg-4 col-lg-offset-4" id="content">
+					{% block content %}
+
+					<h2>YOUR PERSONAL LIST</h2>
+					
+					<form action="{% url 'add' %}" method="POST" role="form">
+						{% csrf_token %}
+						<div class="form-group">
+							<div class="input-group">
+							  {{ form.text }}
+							  <span class="input-group-btn">
+								  <button type="submit" class="btn btn-info" id="add-btn"> + ADD</button>
+							  </span>
+							</div>
+						</div>
+					</form>
+
+					<div class="row t10">
+						<div class="col-lg-12">
+							<div class="btn-toolbar ">
+								<div class="btn-group text-center">
+									<a href="{% url 'deletecomplete' %}"><button type="button" class="btn btn-primary">
+										<i class="glyphicon glyphicon-trash"></i> COMPLETED ITEMS
+									</button></a>
+								</div>
+								<div class="btn-group text-center">
+									<a href="{% url 'deleteall' %}"><button type="button" class="btn btn-danger">
+										<i class="glyphicon glyphicon-trash"></i> ALL ITEMS
+									</button></a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<ul class="list-group t20">
+						{% for todo in todo_list %}
+							{% if todo.complete %}
+							<li class="list-group-item todo-completed">{{ todo.text }}</li>
+							{% else %}
+							<a href="{% url 'complete' todo.id %}"><li class="list-group-item">{{ todo.text }}</li></a>
+							{% endif %}
+						{% endfor %}
+					</ul>
+					{% endblock content %}
+				</div>
+			</div>
+
+			<footer>
+				<div class="row pad">
+					<div class="col-lg-12 text-center">
+						- GROUP 5 - ISU IT 353 FINAL PROJECT - GROUP 5 -
+					</div>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>
